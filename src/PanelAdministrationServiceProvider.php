@@ -2,9 +2,9 @@
 
 namespace Paneladministration\PanelAdministration;
 
+use Paneladministration\PanelAdministration\Commands\PanelAdministrationCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Paneladministration\PanelAdministration\Commands\PanelAdministrationCommand;
 
 class PanelAdministrationServiceProvider extends PackageServiceProvider
 {
