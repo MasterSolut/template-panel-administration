@@ -5,12 +5,14 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     protected $table = 'menus';
-    protected $primaryKey = "id_menus";
+
+    protected $primaryKey = 'id_menus';
+
     protected $fillable = ['titre_menus', 'libelle_menus', 'lien_menus', 'indice_menus', 'publier_menus', 'visible_menus'];
 
     public static function rules()
     {
-        # code...
+        // code...
         return [
             'titre_menus' => 'required|between:3,100',
             'libelle_menus' => 'required|between:3,100',
@@ -37,6 +39,7 @@ class Menu extends Model
 
         ];
     }
+
     public function sous_menus()
     {
         return $this->hasMany('App\SousMenu');

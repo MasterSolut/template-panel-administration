@@ -5,7 +5,9 @@ use Illuminate\Database\Eloquent\Model;
 class Utilisateur extends Model
 {
     protected $table = 'users';
-    protected $primaryKey = "id_users";
+
+    protected $primaryKey = 'id_users';
+
     protected $fillable = ['nom_users', 'prenoms_users', 'sexe_users', 'date_users', 'email', 'adresse_users', 'contact_users', 'logo_users', 'ville_users', 'login_users', 'password', 'publier_users', 'visible_users'];
 
     public static function rules()

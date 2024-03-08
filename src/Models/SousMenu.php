@@ -5,12 +5,14 @@ use Illuminate\Database\Eloquent\Model;
 class SousMenu extends Model
 {
     protected $table = 'sous_menus';
-    protected $primaryKey = "id_sous_menus";
+
+    protected $primaryKey = 'id_sous_menus';
+
     protected $fillable = ['titre_sous_menus', 'libelle_sous_menus', 'lien_sous_menus', 'indice_sous_menus', 'publier_sous_menus', 'visible_sous_menus'];
 
     public static function rules()
     {
-        # code...
+        // code...
         return [
             'titre_sous_menus' => 'required|between:3,100',
             'libelle_sous_menus' => 'required|between:3,100',

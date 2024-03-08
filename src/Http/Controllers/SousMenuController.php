@@ -1,18 +1,16 @@
 <?php
 
-
 namespace Paneladministration\PanelAdministration;
 
-use Illuminate\Routing\Controller;
-use Menu;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Menu;
 use SousMenu;
 
 class SousMenusController extends Controller
 {
-
     public function listBy($id_menus)
     {
         $sous_menus = DB::table('sous_menus')
@@ -21,8 +19,10 @@ class SousMenusController extends Controller
             ->orderBy('indice_sous_menus', 'asc')
             ->get();
         $menu = Menu::find($id_menus);
+
         return view('parametrage.sous_menus.sous_menus_liste', compact('sous_menus', 'menu'));
     }
+
     public function __construct()
     {
         //$this->middleware('auth');
@@ -33,13 +33,15 @@ class SousMenusController extends Controller
         $sous_menus = DB::table('sous_menus')->where('visible_sous_menus', '=', '1')->orderBy('indice_sous_menus', 'asc')->get();
         $menus = DB::table('menus')->where('visible_menus', '=', '1')->orderBy('indice_menus', 'asc')
             ->get();
+
         // dd($menus);
         return view('parametrage/sous_menus/sous_menus_liste', compact('sous_menus', 'menus'));
     }
 
     public function create()
     {
-        $menus = Menu::where('visible_menus', '=', '1')->get()->lists('titre_menus',  'id_menus');
+        $menus = Menu::where('visible_menus', '=', '1')->get()->lists('titre_menus', 'id_menus');
+
         return view('parametrage.sous_menus.sous_menus_form', compact('menus'));
     }
 
@@ -54,7 +56,7 @@ class SousMenusController extends Controller
         $sous_menu->id_menus = $request->id_menus;
         $sous_menu->publier_sous_menus = $request->publier_sous_menus;
         $sous_menu->save();
-        $msg = "Enregistrement effectué avec succès !";
+        $msg = 'Enregistrement effectué avec succès !';
         Session::flash('menu_id', $request->id_menus);
         Session::flash('flash_message', $msg);
 
@@ -64,7 +66,7 @@ class SousMenusController extends Controller
     public function edit($id)
     {
         $sous_menus = SousMenu::find($id);
-        $menus = Menu::where('visible_menus', '=', '1')->get()->lists('titre_menus',  'id_menus');
+        $menus = Menu::where('visible_menus', '=', '1')->get()->lists('titre_menus', 'id_menus');
 
         return view('parametrage.sous_menus.sous_menus_form', compact('sous_menus', 'menus'));
     }
@@ -80,8 +82,9 @@ class SousMenusController extends Controller
         $sous_menu->id_menus = $request->id_menus;
         $sous_menu->publier_sous_menus = $request->publier_sous_menus;
         $sous_menu->save();
-        $msg = "Modification effectuée avec succès !!";
+        $msg = 'Modification effectuée avec succès !!';
         Session::flash('flash_message', $msg);
+
         return redirect()->back();
     }
 
@@ -90,6 +93,7 @@ class SousMenusController extends Controller
         $sous_menu = SousMenu::find($id);
         $sous_menu->visible_sous_menus = 0;
         $sous_menu->save();
+
         return redirect()->route('sous_menus.index');
     }
 }
