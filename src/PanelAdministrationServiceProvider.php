@@ -19,7 +19,7 @@ class PanelAdministrationServiceProvider extends PackageServiceProvider
             ->name('panel-administration')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_panel-administration_table')
+            ->hasMigration('create_panel_administration_table')
             ->hasCommand(PanelAdministrationCommand::class);
     }
 }

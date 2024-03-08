@@ -15,5 +15,55 @@ return new class extends Migration
 
             $table->timestamps();
         });
+        Schema::create('menus', function (Blueprint $table) {
+            $table->integer('id_menus', true);
+            $table->string('titre_menus', 100);
+            $table->string('libelle_menus', 200);
+            $table->string('lien_menus', 200);
+            $table->integer('indice_menus');
+            $table->boolean('publier_menus')->default(true);
+            $table->boolean('visible_menus')->default(true);
+            $table->timestamps();
+});
+
+        Schema::create('sous_menus', function (Blueprint $table) {
+            $table->integer('id_sous_menus', true);
+            $table->string('titre_sous_menus');
+            $table->string('libelle_sous_menus', 200);
+            $table->string('lien_sous_menus', 200);
+            $table->integer('indice_sous_menus');
+            $table->boolean('publier_sous_menus')->default(true);
+            $table->boolean('visible_sous_menus')->default(true);
+            $table->timestamps();
+            $table->integer('id_menus')->index('id_menus');
+        });
+
+        Schema::create('type_users', function (Blueprint $table) {
+            $table->integer('id_type_users', true);
+            $table->string('libelle_type_users', 150);
+            $table->string('fixe', 50);
+            $table->boolean('visible_type_users')->default(true);
+            $table->timestamps();
+        });
+
+        Schema::create('groupe_users', function (Blueprint $table) {
+            $table->integer('id_groupe_users', true);
+            $table->boolean('publier_groupe_users')->default(true);
+            $table->boolean('visible_groupe_users')->default(true);
+            $table->timestamps();
+            $table->integer('id_users')->index('id_users');
+            $table->integer('id_type_users')->index('id_type_users');
+        });
+
+        Schema::create('droits', function (Blueprint $table) {
+            $table->integer('id_droits', true);
+            $table->boolean('publier_droits')->default(true);
+            $table->boolean('visible_droits')->default(true);
+            $table->timestamps();
+            $table->integer('id_sous_menus')->nullable()->index('id_sous_menus');
+            $table->integer('id_users')->nullable();
+            $table->integer('id_type_users')->nullable()->index('id_type_users');
+            $table->integer('id_menus')->nullable()->index('id_menus');
+        });
     }
 };
