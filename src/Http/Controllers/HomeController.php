@@ -5,7 +5,7 @@ namespace Paneladministration\PanelAdministration;
 
 use Illuminate\Routing\Controller;
 
-class AdminPanelController extends Controller
+class HomeController extends Controller
 {
 
     public function __construct()
