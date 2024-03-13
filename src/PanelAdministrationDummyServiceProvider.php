@@ -5,7 +5,6 @@ namespace Paneladministration\PanelAdministration;
 use Arrilot\Widgets\ServiceProvider as WidgetServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
-
 class PanelAdministrationDummyServiceProvider extends ServiceProvider
 {
     /**
@@ -27,7 +26,7 @@ class PanelAdministrationDummyServiceProvider extends ServiceProvider
      */
     private function registerPublishableResources()
     {
-        $publishablePath = dirname(__DIR__) . '/../publishable';
+        $publishablePath = dirname(__DIR__).'/../publishable';
 
         $publishable = [
             'dummy_seeds' => [
@@ -53,7 +52,7 @@ class PanelAdministrationDummyServiceProvider extends ServiceProvider
     public function registerConfigs()
     {
         $this->mergeConfigFrom(
-            dirname(__DIR__) . '/../publishable/config/panel-administration_dummy.php',
+            dirname(__DIR__).'/../publishable/config/panel-administration_dummy.php',
             'panel-administration'
         );
     }
