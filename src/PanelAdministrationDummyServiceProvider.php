@@ -37,7 +37,7 @@ class PanelAdministrationDummyServiceProvider extends ServiceProvider
                 "{$publishablePath}/dummy_content/" => storage_path('app/public'),
             ],
             'dummy_config' => [
-                "{$publishablePath}/config/voyager_dummy.php" => config_path('voyager.php'),
+                "{$publishablePath}/config/panel-administration_dummy.php" => config_path('Panel-administration.php'),
             ],
             'dummy_migrations' => [
                 "{$publishablePath}/database/migrations/" => database_path('migrations'),

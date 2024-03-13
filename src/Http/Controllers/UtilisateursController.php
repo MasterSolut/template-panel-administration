@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-class utilisateursController extends Controller
+class UtilisateursController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -75,9 +75,9 @@ class utilisateursController extends Controller
         $file = $request->file('logo_users');
         if ($file) {
             $extension = $file->getClientOriginalExtension();
-            $nom = time().'.'.$extension;
+            $nom = time() . '.' . $extension;
             $file->move('fichiers', $nom);
-            $utilisateurs->logo_users = 'fichiers/'.$nom;
+            $utilisateurs->logo_users = 'fichiers/' . $nom;
         }
         $utilisateurs->save();
         $msg = 'Utilisateur Enregistr&eacute; !';
@@ -147,9 +147,9 @@ class utilisateursController extends Controller
         // dd($request->file('logo_users'));
         if ($file) {
             $extension = $file->getClientOriginalExtension();
-            $nom = time().'.'.$extension;
+            $nom = time() . '.' . $extension;
             $file->move('fichiers', $nom);
-            $utilisateurs->logo_users = 'fichiers/'.$nom;
+            $utilisateurs->logo_users = 'fichiers/' . $nom;
         }
         $utilisateurs->save();
 
