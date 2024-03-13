@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class utilisateursController extends Controller
 {
@@ -27,10 +27,11 @@ class utilisateursController extends Controller
     public function index()
     {
         //
-        # code...
+        // code...
         $utilisateurs = DB::table('users')->where('visible_users', '=', '1')
             ->orderBy('nom_users', 'asc')
             ->get();
+
         // $utilisateurs->date_users=date('d/m/Y',strtotime($utilisateurs->date_users));
         return view('user', compact('utilisateurs'));
     }
@@ -43,14 +44,13 @@ class utilisateursController extends Controller
     public function create()
     {
         //
-        # code...
+        // code...
         return view('parametrage.utilisateurs.users_form');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -71,17 +71,18 @@ class utilisateursController extends Controller
         $utilisateurs->publier_users = 1;
         $utilisateurs->visible_users = 1;
         $utilisateurs->remember_token = $request->remember_token;
-        //enregistrement d'une foto 
+        //enregistrement d'une foto
         $file = $request->file('logo_users');
         if ($file) {
             $extension = $file->getClientOriginalExtension();
-            $nom = time() . '.' . $extension;
+            $nom = time().'.'.$extension;
             $file->move('fichiers', $nom);
-            $utilisateurs->logo_users = "fichiers/" . $nom;
+            $utilisateurs->logo_users = 'fichiers/'.$nom;
         }
         $utilisateurs->save();
-        $msg = "Utilisateur Enregistr&eacute; !";
+        $msg = 'Utilisateur Enregistr&eacute; !';
         Session::flash('flash_message', $msg);
+
         return redirect()->back();
     }
 
@@ -96,6 +97,7 @@ class utilisateursController extends Controller
         //
         $utilisateurs = User::find($id);
         $utilisateurs->date_users = date('d/m/Y', strtotime($utilisateurs->date_users));
+
         return view('parametrage.utilisateurs.users_show', compact('utilisateurs'));
     }
 
@@ -110,6 +112,7 @@ class utilisateursController extends Controller
         //
         $utilisateurs = User::find($id);
         $utilisateurs->date_users = date('d/m/Y', strtotime($utilisateurs->date_users));
+
         return view('parametrage.utilisateurs.users_edit', compact('utilisateurs'));
     }
 
@@ -118,13 +121,13 @@ class utilisateursController extends Controller
         //
         $utilisateurs = User::find($id);
         $utilisateurs->date_users = date('d/m/Y', strtotime($utilisateurs->date_users));
+
         return view('parametrage.utilisateurs.users_edit_profile', compact('utilisateurs'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -144,14 +147,15 @@ class utilisateursController extends Controller
         // dd($request->file('logo_users'));
         if ($file) {
             $extension = $file->getClientOriginalExtension();
-            $nom = time() . '.' . $extension;
+            $nom = time().'.'.$extension;
             $file->move('fichiers', $nom);
-            $utilisateurs->logo_users = "fichiers/" . $nom;
+            $utilisateurs->logo_users = 'fichiers/'.$nom;
         }
         $utilisateurs->save();
 
-        $msg = "Utilisateur modifi&eacute; !";
+        $msg = 'Utilisateur modifi&eacute; !';
         Session::flash('flash_message', $msg);
+
         return redirect()->back();
     }
 
@@ -168,31 +172,34 @@ class utilisateursController extends Controller
 
     public function enable_users($id)
     {
-        # code...
+        // code...
         $utilisateurs = User::find($id);
         $utilisateurs->publier_users = 1;
         $utilisateurs->save();
+
         return redirect()->route('utilisateurs.index');
     }
 
     public function desable_users($id)
     {
-        # code...
+        // code...
         $utilisateurs = User::find($id);
         $utilisateurs->publier_users = 0;
         $utilisateurs->save();
-        return redirect()->route('utilisateurs.index');
-    }
-    // fonction de suppression d'un user
-    public function visible_users($id)
-    {
-        # code...
-        $utilisateurs = User::find($id);
-        $utilisateurs->visible_users = 0;
-        $utilisateurs->save();
+
         return redirect()->route('utilisateurs.index');
     }
 
+    // fonction de suppression d'un user
+    public function visible_users($id)
+    {
+        // code...
+        $utilisateurs = User::find($id);
+        $utilisateurs->visible_users = 0;
+        $utilisateurs->save();
+
+        return redirect()->route('utilisateurs.index');
+    }
 
     //Yao C.
     public function droits($id)
@@ -200,7 +207,8 @@ class utilisateursController extends Controller
         $droits = DB::table('droits')->where('id_users', '=', $id)->get();
         $menus = DB::table('menus')->where('visible_menus', '=', '1')->get();
         $sous_menus = DB::table('sous_menus')->where('visible_sous_menus', '=', '1')->get();
-        $type_users = TypeUser::lists('libelle_type_users',  'id_type_users');
+        $type_users = TypeUser::lists('libelle_type_users', 'id_type_users');
+
         return view('parametrage.droits.droits_users_liste_post', compact('droits', 'menus', 'sous_menus', 'type_users', 'id'));
     }
 }

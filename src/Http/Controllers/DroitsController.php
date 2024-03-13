@@ -1,35 +1,35 @@
 <?php
 
-
 namespace Paneladministration\PanelAdministration;
 
+use Droit;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Request;
 use Menu;
 use SousMenu;
 use TypeUser;
-use Droit;
 
 class DroitsController extends Controller
 {
-
     public function index()
     {
         $id = 1;
         $droits = DB::table('droits')->where('id_users', '=', $id)->get();
         $menus = DB::table('menus')->where('visible_menus', '=', '1')->get();
         $sous_menus = DB::table('sous_menus')->where('visible_sous_menus', '=', '1')->get();
-        $type_users = TypeUser::where('visible_type_users', '=', '1')->get()->lists('libelle_type_users',  'id_type_users');
-        return view('droits', compact('droits', 'menus', 'sous_menus', 'type_users', 'id'));;
+        $type_users = TypeUser::where('visible_type_users', '=', '1')->get()->lists('libelle_type_users', 'id_type_users');
+
+        return view('droits', compact('droits', 'menus', 'sous_menus', 'type_users', 'id'));
     }
 
     public function create()
     {
-        $menus = Menu::where('visible_menus', '=', '1')->get()->lists('titre_menus',  'id_menus');
-        $sous_menus = SousMenu::where('visible_sous_menus', '=', '1')->get()->lists('titre_sous_menus',  'id_sous_menus');
-        $type_users = TypeUser::where('visible_type_users', '=', '1')->get()->lists('libelle_type_users',  'id_type_users');
+        $menus = Menu::where('visible_menus', '=', '1')->get()->lists('titre_menus', 'id_menus');
+        $sous_menus = SousMenu::where('visible_sous_menus', '=', '1')->get()->lists('titre_sous_menus', 'id_sous_menus');
+        $type_users = TypeUser::where('visible_type_users', '=', '1')->get()->lists('libelle_type_users', 'id_type_users');
+
         return view('parametrage.droits_form', compact('menus', 'sous_menus', 'type_users'));
     }
 
@@ -51,20 +51,22 @@ class DroitsController extends Controller
             $droit->id_sous_menus = $id_sous_menus;
             $droit->save();
         }
-        $msg = "Enrégistrement effectuée avec succès!";
+        $msg = 'Enrégistrement effectuée avec succès!';
         Session::flash('flash_message', $msg);
         $droits = DB::table('droits')->where('id_users', '=', $id)->get();
         $menus = DB::table('menus')->where('visible_menus', '=', '1')->get();
         $sous_menus = DB::table('sous_menus')->where('visible_sous_menus', '=', '1')->get();
+
         return view('parametrage.droits.droits_users_liste_post', compact('droits', 'menus', 'sous_menus', 'type_users', 'id'));
     }
 
     public function edit($id)
     {
         $droit = Droit::find($id);
-        $menus = Menu::lists('titre_menus',  'id_menus');
+        $menus = Menu::lists('titre_menus', 'id_menus');
         $sous_menus = DB::table('sous_menus')->where('visible_sous_menus', '=', '1')->get();
-        $type_users = TypeUser::where('visible_type_users', '=', '1')->get()->lists('libelle_type_users',  'id_type_users');
+        $type_users = TypeUser::where('visible_type_users', '=', '1')->get()->lists('libelle_type_users', 'id_type_users');
+
         return view('parametrage.droits_form', compact('droit', 'menus', 'sous_menus', 'type_users'));
     }
 }

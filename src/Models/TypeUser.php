@@ -5,7 +5,9 @@ use Illuminate\Database\Eloquent\Model;
 class TypeUser extends Model
 {
     protected $table = 'type_users';
-    protected $primaryKey = "id_type_users";
+
+    protected $primaryKey = 'id_type_users';
+
     protected $fillable = ['libelle_type_users', 'publier_type_users', 'visible_type_users'];
 
     public static function rules()
