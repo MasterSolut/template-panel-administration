@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Paneladministration\PanelAdministration\Http\Controllers;
-
 
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;

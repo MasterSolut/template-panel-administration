@@ -10,7 +10,7 @@ class PanelAdministrationServiceProvider extends PackageServiceProvider
 {
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'PanelAdministration');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'PanelAdministration');
     }
 
     public function configurePackage(Package $package): void

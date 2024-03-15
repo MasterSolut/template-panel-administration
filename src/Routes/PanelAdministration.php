@@ -2,19 +2,15 @@
 
 namespace Paneladministration\PanelAdministration;
 
-
-use Paneladministration\PanelAdministration\Http\Controllers\HomeController;
-use Paneladministration\PanelAdministration\Http\Controllers\UtilisateursController;
-use Paneladministration\PanelAdministration\Http\Controllers\MenusController;
+use Illuminate\Support\Facades\Route;
 use Paneladministration\PanelAdministration\Http\Controllers\AdminPanelController;
-use Paneladministration\PanelAdministration\Http\Controllers\SousMenuController;
-
-use  Illuminate\Support\Facades\Route;
 use Paneladministration\PanelAdministration\Http\Controllers\DroitsController;
+use Paneladministration\PanelAdministration\Http\Controllers\HomeController;
+use Paneladministration\PanelAdministration\Http\Controllers\MenusController;
+use Paneladministration\PanelAdministration\Http\Controllers\SousMenuController;
+use Paneladministration\PanelAdministration\Http\Controllers\UtilisateursController;
 
-$namespacePrefix = '\\' . config('panel.controllers.namespace') . '\\';
-
-
+$namespacePrefix = '\\'.config('panel.controllers.namespace').'\\';
 
 Route::group([
     'namespace' => $namespacePrefix,

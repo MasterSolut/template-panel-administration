@@ -2,10 +2,10 @@
 
 namespace Paneladministration\PanelAdministration\Commands;
 
+use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
-use Illuminate\Console\Command;
 
 class ControllersCommand extends Command
 {
@@ -39,8 +39,6 @@ class ControllersCommand extends Command
 
     /**
      * Create a new command instance.
-     *
-     * @param Filesystem $filesystem
      */
     public function __construct(Filesystem $filesystem)
     {
@@ -67,13 +65,13 @@ class ControllersCommand extends Command
 
         $appNamespace = app()->getNamespace();
 
-        if (!Str::startsWith($namespace, $appNamespace)) {
-            return $this->error('The controllers namespace must start with your application namespace: ' . $appNamespace);
+        if (! Str::startsWith($namespace, $appNamespace)) {
+            return $this->error('The controllers namespace must start with your application namespace: '.$appNamespace);
         }
 
         $location = str_replace('\\', DIRECTORY_SEPARATOR, substr($namespace, strlen($appNamespace)));
 
-        if (!$this->filesystem->isDirectory(app_path($location))) {
+        if (! $this->filesystem->isDirectory(app_path($location))) {
             $this->filesystem->makeDirectory(app_path($location));
         }
 
@@ -85,9 +83,9 @@ class ControllersCommand extends Command
                 continue;
             }
 
-            $path = app_path($location . DIRECTORY_SEPARATOR . $filename);
+            $path = app_path($location.DIRECTORY_SEPARATOR.$filename);
 
-            if (!$this->filesystem->exists($path) or $this->option('force')) {
+            if (! $this->filesystem->exists($path) or $this->option('force')) {
                 $class = substr($filename, 0, strpos($filename, '.'));
                 $content = $this->generateContent($stub, $class);
                 $this->filesystem->put($path, $content);
@@ -104,14 +102,12 @@ class ControllersCommand extends Command
      */
     public function getStub()
     {
-        return $this->filesystem->get(base_path('/vendor/PanelAdministration/PanelAdministration/stubs/' . $this->stub));
+        return $this->filesystem->get(base_path('/vendor/PanelAdministration/PanelAdministration/stubs/'.$this->stub));
     }
 
     /**
      * Generate real content from stub.
      *
-     * @param $stub
-     * @param $class
      *
      * @return mixed
      */
@@ -127,13 +123,13 @@ class ControllersCommand extends Command
 
         $content = str_replace(
             'FullBaseDummyClass',
-            'PanelAdministration\\PanelAdministration\\Http\\Controllers\\' . $class,
+            'PanelAdministration\\PanelAdministration\\Http\\Controllers\\'.$class,
             $content
         );
 
         $content = str_replace(
             'BaseDummyClass',
-            'Base' . $class,
+            'Base'.$class,
             $content
         );
 
