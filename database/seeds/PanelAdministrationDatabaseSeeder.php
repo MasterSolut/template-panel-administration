@@ -17,7 +17,7 @@ class VoyagerDatabaseSeeder extends Seeder
         $this->call([
             MenusTableSeeder::class,
             DroitsTableSeeder::class,
-            TypeUserSeeder::class
+            TypeUserSeeder::class,
         ]);
     }
 }

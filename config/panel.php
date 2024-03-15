@@ -14,5 +14,5 @@ return [
         // 'namespace' => 'App\\Models\\',
     ],
 
-    PanelAdministrationServiceProvider::class
+    PanelAdministrationServiceProvider::class,
 ];

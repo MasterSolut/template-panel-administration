@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Paneladministration\PanelAdministration;
 
 use Illuminate\Database\Seeder;
@@ -12,7 +11,7 @@ class TypeUserSeeder extends Seeder
     {
         TypeUser::firstOrCreate([
             'libelle_type_users' => '',
-            'fixe' => ''
+            'fixe' => '',
         ]);
     }
 }

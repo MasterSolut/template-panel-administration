@@ -80,9 +80,9 @@ class UtilisateursController extends Controller
         $file = $request->file('logo_users');
         if ($file) {
             $extension = $file->getClientOriginalExtension();
-            $nom = time() . '.' . $extension;
+            $nom = time().'.'.$extension;
             $file->move('fichiers', $nom);
-            $utilisateurs->logo_users = 'fichiers/' . $nom;
+            $utilisateurs->logo_users = 'fichiers/'.$nom;
         }
         $utilisateurs->save();
         $msg = 'Utilisateur Enregistr&eacute; !';
@@ -152,9 +152,9 @@ class UtilisateursController extends Controller
         // dd($request->file('logo_users'));
         if ($file) {
             $extension = $file->getClientOriginalExtension();
-            $nom = time() . '.' . $extension;
+            $nom = time().'.'.$extension;
             $file->move('fichiers', $nom);
-            $utilisateurs->logo_users = 'fichiers/' . $nom;
+            $utilisateurs->logo_users = 'fichiers/'.$nom;
         }
         $utilisateurs->save();
 

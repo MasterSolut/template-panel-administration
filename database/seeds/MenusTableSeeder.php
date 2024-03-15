@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Paneladministration\PanelAdministration;
 
 use Illuminate\Database\Seeder;

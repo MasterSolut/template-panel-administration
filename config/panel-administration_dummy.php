@@ -12,9 +12,9 @@ return [
 
     'user' => [
         'add_default_role_on_register' => true,
-        'default_role'                 => 'user',
-        'default_avatar'               => 'users/default.png',
-        'redirect'                     => '/admin',
+        'default_role' => 'user',
+        'default_avatar' => 'users/default.png',
+        'redirect' => '/admin',
     ],
 
     /*
@@ -128,17 +128,17 @@ return [
         // Add custom list items to navbar's dropdown
         'navbar_items' => [
             'panel::generic.profile' => [
-                'route'      => 'panel.profile',
-                'classes'    => 'class-full-of-rum',
+                'route' => 'panel.profile',
+                'classes' => 'class-full-of-rum',
                 'icon_class' => 'panel-person',
             ],
             'panel::generic.home' => [
-                'route'        => '/',
-                'icon_class'   => 'panel-home',
+                'route' => '/',
+                'icon_class' => 'panel-home',
                 'target_blank' => true,
             ],
             'panel::generic.logout' => [
-                'route'      => 'panel.logout',
+                'route' => 'panel.logout',
                 'icon_class' => 'panel-power',
             ],
         ],
@@ -193,7 +193,7 @@ return [
     ],
 
     'googlemaps' => [
-        'key'    => env('GOOGLE_MAPS_KEY', ''),
+        'key' => env('GOOGLE_MAPS_KEY', ''),
         'center' => [
             'lat' => env('GOOGLE_MAPS_DEFAULT_CENTER_LAT', '32.715738'),
             'lng' => env('GOOGLE_MAPS_DEFAULT_CENTER_LNG', '-117.161084'),
@@ -215,13 +215,13 @@ return [
             'video/mp4',
         ],
         //Path for media-manager. Relative to the filesystem.
-        'path'                => '/',
-        'show_folders'        => true,
-        'allow_upload'        => true,
-        'allow_move'          => true,
-        'allow_delete'        => true,
+        'path' => '/',
+        'show_folders' => true,
+        'allow_upload' => true,
+        'allow_move' => true,
+        'allow_delete' => true,
         'allow_create_folder' => true,
-        'allow_rename'        => true,
+        'allow_rename' => true,
         /*'watermark'           => [
             'source'         => 'watermark.png',
             'position'       => 'bottom-left',

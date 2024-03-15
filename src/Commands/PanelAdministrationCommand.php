@@ -2,7 +2,6 @@
 
 namespace Paneladministration\PanelAdministration\Commands;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
@@ -14,49 +13,37 @@ use Symfony\Component\Console\Input\InputOption;
 class PanelAdministrationCommand extends Command
 {
     /**
-
      * The name and signature of the console command.
 
      *
 
      * @var string
-
      */
-
     protected $signature = 'panel:install';
-    /**
 
+    /**
      * The console command description.
 
      *
 
      * @var string
-
      */
-
     protected $description = 'Installer les ressources panel';
     /**
-
      * Create a new command instance.
 
      *
 
      * @return void
-
      */
 
-
-
     /**
-
      * Execute the console command.
 
      *
 
      * @return void
-
      */
-
     protected $composer;
 
     /**
@@ -104,7 +91,6 @@ class PanelAdministrationCommand extends Command
     /**
      * Execute the console command.
      *
-     * @param \Illuminate\Filesystem\Filesystem $filesystem
      *
      * @return void
      */
@@ -122,13 +108,12 @@ class PanelAdministrationCommand extends Command
 
 
 
-
         $this->info('Adding Panel routes to routes/web.php');
         $routes_contents = $filesystem->get(base_path('routes/web.php'));
-        if (false === strpos($routes_contents, 'PanelAdministration::routes()')) {
+        if (strpos($routes_contents, 'PanelAdministration::routes()') === false) {
             $filesystem->append(
                 base_path('routes/web.php'),
-                PHP_EOL . PHP_EOL . "Route::group(['prefix' => 'admin'], function () {" . PHP_EOL . "    PanelAdministration::routes();" . PHP_EOL . "});" . PHP_EOL
+                PHP_EOL . PHP_EOL . "Route::group(['prefix' => 'admin'], function () {" . PHP_EOL . '    PanelAdministration::routes();' . PHP_EOL . '});' . PHP_EOL
             );
         }
 
@@ -166,15 +151,14 @@ class PanelAdministrationCommand extends Command
         $seeds->each(function ($file) use ($filesystem) {
             $path = database_path('seeders') . '/' . $file->getFilename();
             $stub = str_replace(
-                ["<?php\n\nuse", "<?php" . PHP_EOL . PHP_EOL . "use"],
-                "<?php" . PHP_EOL . PHP_EOL . "namespace Database\\Seeders;" . PHP_EOL . PHP_EOL . "use",
+                ["<?php\n\nuse", '<?php' . PHP_EOL . PHP_EOL . 'use'],
+                '<?php' . PHP_EOL . PHP_EOL . 'namespace Database\\Seeders;' . PHP_EOL . PHP_EOL . 'use',
                 $filesystem->get($path)
             );
 
             $filesystem->put($path, $stub);
         });
     }
-
 
     /**
      * Register the Horizon service provider in the application configuration file.
