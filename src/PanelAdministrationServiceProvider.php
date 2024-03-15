@@ -8,14 +8,11 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class PanelAdministrationServiceProvider extends PackageServiceProvider
 {
-<<<<<<< HEAD
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'PanelAdministration');
     }
 
-=======
->>>>>>> beb851ade8fcc364ef5806fcd18b627298aaf044
     public function configurePackage(Package $package): void
     {
         /*
