@@ -42,11 +42,11 @@ class Menu extends Model
 
     public function sous_menus()
     {
-        return $this->hasMany('App\SousMenu');
+        return $this->hasMany(Menu::class);
     }
 
     public function droits()
     {
-        return $this->hasMany('App\Droit');
+        return $this->hasMany(Droit::class);
     }
 }

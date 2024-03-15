@@ -1,6 +1,6 @@
 <?php
 
-namespace Paneladministration\PanelAdministration;
+namespace Paneladministration\PanelAdministration\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 use Menu;
 use SousMenu;
 
-class SousMenusController extends Controller
+class SousMenuController extends Controller
 {
     public function listBy($id_menus)
     {

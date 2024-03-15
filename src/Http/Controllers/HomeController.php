@@ -1,18 +1,16 @@
 <?php
 
-namespace Paneladministration\PanelAdministration;
+namespace Paneladministration\PanelAdministration\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
-    public function index()
+
+    public function __invoke(Request $request)
     {
-        return view('home');
+        return "Welcome to our homepage";
     }
 }

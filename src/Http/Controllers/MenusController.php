@@ -1,13 +1,13 @@
 <?php
 
-namespace Paneladministration\PanelAdministration;
+namespace Paneladministration\PanelAdministration\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Menu;
 
-class MenuController extends Controller
+class MenusController extends Controller
 {
     public function index()
     {

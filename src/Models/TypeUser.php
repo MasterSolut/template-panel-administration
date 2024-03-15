@@ -31,6 +31,6 @@ class TypeUser extends Model
 
     public function droits()
     {
-        return $this->hasMany('App\Droit');
+        return $this->hasMany(Droit::class);
     }
 }

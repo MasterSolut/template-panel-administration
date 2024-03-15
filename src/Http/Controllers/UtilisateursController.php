@@ -1,11 +1,16 @@
 <?php
 
+
+namespace Paneladministration\PanelAdministration\Http\Controllers;
+
+
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use TypeUser;
 
 class UtilisateursController extends Controller
 {

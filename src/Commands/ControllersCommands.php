@@ -63,7 +63,7 @@ class ControllersCommand extends Command
     {
         $stub = $this->getStub();
         $files = $this->filesystem->files(base_path('vendor/PanelAdministration/PanelAdministration/src/Http/Controllers'));
-        $namespace = config('voyager.controllers.namespace', 'PanelAdministration\\PanelAdministration\\Http\\Controllers');
+        $namespace = config('panel.controllers.namespace', 'PanelAdministration\\PanelAdministration\\Http\\Controllers');
 
         $appNamespace = app()->getNamespace();
 
@@ -94,7 +94,7 @@ class ControllersCommand extends Command
             }
         }
 
-        $this->info('Published Voyager controllers!');
+        $this->info('Published Panel controllers!');
     }
 
     /**
@@ -117,7 +117,7 @@ class ControllersCommand extends Command
      */
     protected function generateContent($stub, $class)
     {
-        $namespace = config('PanelAdministration.controllers.namespace', 'TCG\\Voyager\\Http\\Controllers');
+        $namespace = config('panel.controllers.namespace', 'PanelAdministration\\PanelAdministration\\Http\\Controllers');
 
         $content = str_replace(
             'DummyNamespace',
@@ -127,7 +127,7 @@ class ControllersCommand extends Command
 
         $content = str_replace(
             'FullBaseDummyClass',
-            'TCG\\Voyager\\Http\\Controllers\\' . $class,
+            'PanelAdministration\\PanelAdministration\\Http\\Controllers\\' . $class,
             $content
         );
 

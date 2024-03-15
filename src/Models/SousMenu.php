@@ -42,11 +42,11 @@ class SousMenu extends Model
 
     public function menu()
     {
-        return $this->belongsTo('App\menu', 'id_menus');
+        return $this->belongsTo(Menu::class, 'id_menus');
     }
 
     public function droits()
     {
-        return $this->hasMany('App\Droit');
+        return $this->hasMany(Droit::class);
     }
 }
