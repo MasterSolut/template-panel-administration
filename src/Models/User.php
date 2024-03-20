@@ -1,9 +1,17 @@
 <?php
 
-use Illuminate\Database\Eloquent\Model;
+namespace Paneladministration\PanelAdministration\Models;
 
-class Utilisateur extends Model
+
+use Illuminate\Contracts\Auth\UserProvider;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as AuthUser;
+
+class User  extends AuthUser
+
 {
+
+
     protected $table = 'users';
 
     protected $primaryKey = 'id_users';

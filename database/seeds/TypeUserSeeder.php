@@ -3,7 +3,7 @@
 namespace Paneladministration\PanelAdministration;
 
 use Illuminate\Database\Seeder;
-use TypeUser;
+use Paneladministration\PanelAdministration\Models\TypeUser;
 
 class TypeUserSeeder extends Seeder
 {

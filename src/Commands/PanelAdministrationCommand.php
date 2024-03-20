@@ -142,23 +142,6 @@ class PanelAdministrationCommand extends Command
         $this->info('Successfully installed Panel Administration! Enjoy');
     }
 
-    private function addNamespaceIfNeeded($seeds, Filesystem $filesystem)
-    {
-        if ($this->seedFolder != 'seeders') {
-            return;
-        }
-
-        $seeds->each(function ($file) use ($filesystem) {
-            $path = database_path('seeders') . '/' . $file->getFilename();
-            $stub = str_replace(
-                ["<?php\n\nuse", '<?php' . PHP_EOL . PHP_EOL . 'use'],
-                '<?php' . PHP_EOL . PHP_EOL . 'namespace Database\\Seeders;' . PHP_EOL . PHP_EOL . 'use',
-                $filesystem->get($path)
-            );
-
-            $filesystem->put($path, $stub);
-        });
-    }
 
     /**
      * Register the Horizon service provider in the application configuration file.

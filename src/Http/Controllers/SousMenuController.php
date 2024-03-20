@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-use Menu;
-use SousMenu;
+use Paneladministration\PanelAdministration\Models\Menu;
+use Paneladministration\PanelAdministration\Models\SousMenu;
 
 class SousMenuController extends Controller
 {

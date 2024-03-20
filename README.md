@@ -26,6 +26,8 @@ composer require mastersolut/panel-administration
 You can publish and run the migrations with:
 
 ```bash
+php artisan panel:install
+        ou
 php artisan vendor:publish --tag="panel-administration-migrations"
 php artisan migrate
 ```

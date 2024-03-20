@@ -5,7 +5,8 @@ namespace Paneladministration\PanelAdministration\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
-use Menu;
+use Paneladministration\PanelAdministration\Facades\PanelAdministration;
+use Paneladministration\PanelAdministration\Models\Menu;
 
 class MenusController extends Controller
 {
@@ -13,7 +14,7 @@ class MenusController extends Controller
     {
         $menus = DB::table('menus')->where('visible_menus', '=', '1')->orderBy('indice_menus', 'asc')->get();
 
-        return view('parametrage.menus.menus_liste', compact('menus'));
+        return PanelAdministration::view('PanelAdministration::navigation', compact('menus'));
     }
 
     public function create()

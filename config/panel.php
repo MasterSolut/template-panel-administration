@@ -11,7 +11,11 @@ return [
     ],
 
     'models' => [
-        // 'namespace' => 'App\\Models\\',
+        'namespace' => 'PanelAdministration\\PanelAdministration\\Models\\',
+    ],
+
+    'commands' => [
+        'namespace' => 'Paneladministration\\PanelAdministration\\Commands',
     ],
 
     PanelAdministrationServiceProvider::class,

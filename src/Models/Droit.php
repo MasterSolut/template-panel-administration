@@ -1,5 +1,8 @@
 <?php
 
+
+namespace Paneladministration\PanelAdministration\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Droit extends Model

@@ -1,5 +1,7 @@
 <?php
 
+namespace Paneladministration\PanelAdministration\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
 class TypeUser extends Model

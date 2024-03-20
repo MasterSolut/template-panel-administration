@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 use Illuminate\Console\Command;
 
-class ControllersCommand extends Command
+class ControllersCommands extends Command
 {
     /**
      * The console command name.

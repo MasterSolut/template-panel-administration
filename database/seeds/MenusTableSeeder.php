@@ -3,7 +3,7 @@
 namespace Paneladministration\PanelAdministration;
 
 use Illuminate\Database\Seeder;
-use Menu;
+use Paneladministration\PanelAdministration\Models\Menu;
 
 class MenusTableSeeder extends Seeder
 {

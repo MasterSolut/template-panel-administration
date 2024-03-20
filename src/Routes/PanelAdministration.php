@@ -1,16 +1,9 @@
 <?php
 
-namespace Paneladministration\PanelAdministration;
-
-
-use Paneladministration\PanelAdministration\Http\Controllers\HomeController;
-use Paneladministration\PanelAdministration\Http\Controllers\UtilisateursController;
-use Paneladministration\PanelAdministration\Http\Controllers\MenusController;
-use Paneladministration\PanelAdministration\Http\Controllers\AdminPanelController;
-use Paneladministration\PanelAdministration\Http\Controllers\SousMenuController;
+namespace Paneladministration\PanelAdministration\Http\Controllers;
 
 use  Illuminate\Support\Facades\Route;
-use Paneladministration\PanelAdministration\Http\Controllers\DroitsController;
+
 
 $namespacePrefix = '\\' . config('panel.controllers.namespace') . '\\';
 
@@ -19,8 +12,7 @@ $namespacePrefix = '\\' . config('panel.controllers.namespace') . '\\';
 Route::group([
     'namespace' => $namespacePrefix,
 ], function () {
-    Route::get('/dashboard', [HomeController::class]);
-    Route::get('/', [AdminPanelController::class]);
+    Route::get('/', [AdminPanelController::class, 'index']);
     Route::get('/dashboard', [HomeController::class]);
     Route::resource('/utilisateurs', UtilisateursController::class);
     Route::get('/enable_users/{id}', [UtilisateursController::class, 'enable_users']);
