@@ -5,7 +5,6 @@ namespace Paneladministration\PanelAdministration\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
-use Paneladministration\PanelAdministration\PanelAdministrationDummyServiceProvider;
 use Paneladministration\PanelAdministration\PanelAdministrationServiceProvider;
 use Paneladministration\PanelAdministration\Seed;
 use Symfony\Component\Console\Input\InputOption;
@@ -76,8 +75,8 @@ class PanelAdministrationCommand extends Command
      */
     protected function findComposer()
     {
-        if (file_exists(getcwd() . '/composer.phar')) {
-            return '"' . PHP_BINARY . '" ' . getcwd() . '/composer.phar';
+        if (file_exists(getcwd().'/composer.phar')) {
+            return '"'.PHP_BINARY.'" '.getcwd().'/composer.phar';
         }
 
         return 'composer';
@@ -106,22 +105,18 @@ class PanelAdministrationCommand extends Command
         $this->info('Migrating the database tables into your application');
         $this->call('migrate', ['--force' => $this->option('force')]);
 
-
-
         $this->info('Adding Panel routes to routes/web.php');
         $routes_contents = $filesystem->get(base_path('routes/web.php'));
         if (strpos($routes_contents, 'PanelAdministration::routes()') === false) {
             $filesystem->append(
                 base_path('routes/web.php'),
-                PHP_EOL . PHP_EOL . "Route::group(['prefix' => 'admin'], function () {" . PHP_EOL . '    PanelAdministration::routes();' . PHP_EOL . '});' . PHP_EOL
+                PHP_EOL.PHP_EOL."Route::group(['prefix' => 'admin'], function () {".PHP_EOL.'    PanelAdministration::routes();'.PHP_EOL.'});'.PHP_EOL
             );
         }
 
-        $publishablePath = dirname(__DIR__) . '/../publishable';
-
+        $publishablePath = dirname(__DIR__).'/../publishable';
 
         $this->call('vendor:publish', ['--provider' => PanelAdministrationServiceProvider::class, '--tag' => ['config', 'PanelAdministration_avatar']]);
-
 
         $this->addNamespaceIfNeeded(
             collect($filesystem->files("{$publishablePath}/database/seeds/")),
@@ -135,13 +130,32 @@ class PanelAdministrationCommand extends Command
         $this->info('Seeding data into the database');
         $this->call('db:seed', ['--class' => 'PanelAdministrationDatabaseSeeder']);
 
-
         $this->info('Adding the storage symlink to your public folder');
         $this->call('storage:link');
 
         $this->info('Successfully installed Panel Administration! Enjoy');
     }
 
+<<<<<<< HEAD
+=======
+    private function addNamespaceIfNeeded($seeds, Filesystem $filesystem)
+    {
+        if ($this->seedFolder != 'seeders') {
+            return;
+        }
+
+        $seeds->each(function ($file) use ($filesystem) {
+            $path = database_path('seeders').'/'.$file->getFilename();
+            $stub = str_replace(
+                ["<?php\n\nuse", '<?php'.PHP_EOL.PHP_EOL.'use'],
+                '<?php'.PHP_EOL.PHP_EOL.'namespace Database\\Seeders;'.PHP_EOL.PHP_EOL.'use',
+                $filesystem->get($path)
+            );
+
+            $filesystem->put($path, $stub);
+        });
+    }
+>>>>>>> de7f6d040d8de480e1a369abab1e66dd2f0b2ee6
 
     /**
      * Register the Horizon service provider in the application configuration file.

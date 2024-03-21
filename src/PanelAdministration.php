@@ -15,6 +15,7 @@ class PanelAdministration
 {
     protected $viewLoadingEvents = [];
     protected $version;
+
     public function getVersion()
     {
         return $this->version;
