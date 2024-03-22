@@ -8,9 +8,8 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use Paneladministration\PanelAdministration\Models\TypeUser;
 use Paneladministration\PanelAdministration\Facades\PanelAdministration;
-
+use Paneladministration\PanelAdministration\Models\TypeUser;
 
 class UtilisateursController extends Controller
 {
@@ -78,9 +77,9 @@ class UtilisateursController extends Controller
         $file = $request->file('logo_users');
         if ($file) {
             $extension = $file->getClientOriginalExtension();
-            $nom = time() . '.' . $extension;
+            $nom = time().'.'.$extension;
             $file->move('fichiers', $nom);
-            $utilisateurs->logo_users = 'fichiers/' . $nom;
+            $utilisateurs->logo_users = 'fichiers/'.$nom;
         }
         $utilisateurs->save();
         $msg = 'Utilisateur Enregistr&eacute; !';
@@ -150,9 +149,9 @@ class UtilisateursController extends Controller
         // dd($request->file('logo_users'));
         if ($file) {
             $extension = $file->getClientOriginalExtension();
-            $nom = time() . '.' . $extension;
+            $nom = time().'.'.$extension;
             $file->move('fichiers', $nom);
-            $utilisateurs->logo_users = 'fichiers/' . $nom;
+            $utilisateurs->logo_users = 'fichiers/'.$nom;
         }
         $utilisateurs->save();
 
