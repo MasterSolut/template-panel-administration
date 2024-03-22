@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Paneladministration\PanelAdministration\Models\TypeUser;
+use Paneladministration\PanelAdministration\Facades\PanelAdministration;
+
 
 class UtilisateursController extends Controller
 {
@@ -31,12 +33,10 @@ class UtilisateursController extends Controller
     {
         //
         // code...
-        $utilisateurs = DB::table('users')->where('visible_users', '=', '1')
-            ->orderBy('nom_users', 'asc')
-            ->get();
+        $utilisateurs = DB::table('users')->orderBy('name', 'asc')->get();
 
         // $utilisateurs->date_users=date('d/m/Y',strtotime($utilisateurs->date_users));
-        return view('user', compact('utilisateurs'));
+        return PanelAdministration::view('PanelAdministration::user', compact('utilisateurs'));
     }
 
     /**

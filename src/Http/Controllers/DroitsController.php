@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Paneladministration\PanelAdministration\Facades\PanelAdministration;
 use Paneladministration\PanelAdministration\Models\Menu;
 use Paneladministration\PanelAdministration\Models\SousMenu;
 use Paneladministration\PanelAdministration\Models\TypeUser;
@@ -19,9 +20,8 @@ class DroitsController extends Controller
         $droits = DB::table('droits')->where('id_users', '=', $id)->get();
         $menus = DB::table('menus')->where('visible_menus', '=', '1')->get();
         $sous_menus = DB::table('sous_menus')->where('visible_sous_menus', '=', '1')->get();
-        $type_users = TypeUser::where('visible_type_users', '=', '1')->get()->lists('libelle_type_users', 'id_type_users');
-
-        return view('droits', compact('droits', 'menus', 'sous_menus', 'type_users', 'id'));
+        $type_users = TypeUser::where('visible_type_users', '=', '1')->get()->lists('libelle_type_users',  'id_type_users');
+        return PanelAdministration::view('PanelAdministration::parametrage.test', compact('droits', 'menus', 'sous_menus', 'type_users', 'id'));;
     }
 
     public function create()

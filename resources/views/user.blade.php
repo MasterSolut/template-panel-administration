@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('PanelAdministration::layouts.app')
 
 @push('page-css')
 <!-- Select2 css-->

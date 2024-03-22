@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('PanelAdministration::layouts.app')
 
 @push('page-css')
 	<!-- Select2 CSS -->
@@ -9,7 +9,7 @@
 <div class="col">
 	<h3 class="page-title" style="margin-left: 15px">Profil</h3>
 	<ul class="breadcrumb">
-		<li class="breadcrumb-item"><a href="{{route('home')}}">Tableau de bord</a></li>
+		<li class="breadcrumb-item"><a href="">Tableau de bord</a></li>
 		<li class="breadcrumb-item active">Profil</li>
 	</ul>
 </div>

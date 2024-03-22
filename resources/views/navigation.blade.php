@@ -1,3 +1,4 @@
+@extends('PanelAdministration::layouts.app')
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 	<!-- sidebar: style can be found in sidebar.less -->
 	<section class="sidebar">
@@ -5,7 +6,7 @@
 		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
 			<div class="image">
 				@if(Auth::check())
-				<img src="{{  url(Auth::user()->logo_users) }}" class="img-circle" alt="img-circle elevation-2" style="height: 50px; width: 50px;">
+				<img src="" class="img-circle" alt="img-circle elevation-2" style="height: 50px; width: 50px;">
 				@else
 				<p></p>
 				@endif

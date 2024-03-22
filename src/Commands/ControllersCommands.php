@@ -65,13 +65,13 @@ class ControllersCommands extends Command
 
         $appNamespace = app()->getNamespace();
 
-        if (! Str::startsWith($namespace, $appNamespace)) {
-            return $this->error('The controllers namespace must start with your application namespace: '.$appNamespace);
+        if (!Str::startsWith($namespace, $appNamespace)) {
+            return $this->error('The controllers namespace must start with your application namespace: ' . $appNamespace);
         }
 
         $location = str_replace('\\', DIRECTORY_SEPARATOR, substr($namespace, strlen($appNamespace)));
 
-        if (! $this->filesystem->isDirectory(app_path($location))) {
+        if (!$this->filesystem->isDirectory(app_path($location))) {
             $this->filesystem->makeDirectory(app_path($location));
         }
 
@@ -83,9 +83,9 @@ class ControllersCommands extends Command
                 continue;
             }
 
-            $path = app_path($location.DIRECTORY_SEPARATOR.$filename);
+            $path = app_path($location . DIRECTORY_SEPARATOR . $filename);
 
-            if (! $this->filesystem->exists($path) or $this->option('force')) {
+            if (!$this->filesystem->exists($path) or $this->option('force')) {
                 $class = substr($filename, 0, strpos($filename, '.'));
                 $content = $this->generateContent($stub, $class);
                 $this->filesystem->put($path, $content);
@@ -102,7 +102,7 @@ class ControllersCommands extends Command
      */
     public function getStub()
     {
-        return $this->filesystem->get(base_path('/vendor/PanelAdministration/PanelAdministration/stubs/'.$this->stub));
+        return $this->filesystem->get(base_path('/vendor/PanelAdministration/PanelAdministration/stubs/' . $this->stub));
     }
 
     /**
@@ -123,13 +123,13 @@ class ControllersCommands extends Command
 
         $content = str_replace(
             'FullBaseDummyClass',
-            'PanelAdministration\\PanelAdministration\\Http\\Controllers\\'.$class,
+            'PanelAdministration\\PanelAdministration\\Http\\Controllers\\' . $class,
             $content
         );
 
         $content = str_replace(
             'BaseDummyClass',
-            'Base'.$class,
+            'Base' . $class,
             $content
         );
 

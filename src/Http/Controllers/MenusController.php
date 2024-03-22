@@ -14,12 +14,12 @@ class MenusController extends Controller
     {
         $menus = DB::table('menus')->where('visible_menus', '=', '1')->orderBy('indice_menus', 'asc')->get();
 
-        return PanelAdministration::view('PanelAdministration::navigation', compact('menus'));
+        return PanelAdministration::view('PanelAdministration::parametrage.menus.menus_liste', compact('menus'));
     }
 
     public function create()
     {
-        return view('parametrage.menus.menus_form');
+        return PanelAdministration::view('PanelAdministration::parametrage.menus.menus_form');
     }
 
     public function edit($id)
