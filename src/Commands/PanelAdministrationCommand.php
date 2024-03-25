@@ -75,8 +75,8 @@ class PanelAdministrationCommand extends Command
      */
     protected function findComposer()
     {
-        if (file_exists(getcwd() . '/composer.phar')) {
-            return '"' . PHP_BINARY . '" ' . getcwd() . '/composer.phar';
+        if (file_exists(getcwd().'/composer.phar')) {
+            return '"'.PHP_BINARY.'" '.getcwd().'/composer.phar';
         }
 
         return 'composer';
@@ -110,11 +110,11 @@ class PanelAdministrationCommand extends Command
         if (strpos($routes_contents, 'PanelAdministration::routes()') === false) {
             $filesystem->append(
                 base_path('routes/web.php'),
-                PHP_EOL . PHP_EOL . "Route::group(['prefix' => 'admin'], function () {" . PHP_EOL . '    PanelAdministration::routes();' . PHP_EOL . '});' . PHP_EOL
+                PHP_EOL.PHP_EOL."Route::group(['prefix' => 'admin'], function () {".PHP_EOL.'    PanelAdministration::routes();'.PHP_EOL.'});'.PHP_EOL
             );
         }
 
-        $publishablePath = dirname(__DIR__) . '/../publishable';
+        $publishablePath = dirname(__DIR__).'/../publishable';
 
         $this->call('vendor:publish', ['--provider' => PanelAdministrationServiceProvider::class, '--tag' => ['config', 'PanelAdministration_avatar']]);
 
@@ -135,7 +135,6 @@ class PanelAdministrationCommand extends Command
 
         $this->info('Successfully installed Panel Administration! Enjoy');
     }
-
 
     /**
      * Register the Horizon service provider in the application configuration file.

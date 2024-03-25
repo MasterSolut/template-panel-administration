@@ -2,12 +2,12 @@
 
 namespace Paneladministration\PanelAdministration\Http\Controllers;
 
-use Paneladministration\PanelAdministration\Models\Droit;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Paneladministration\PanelAdministration\Facades\PanelAdministration;
+use Paneladministration\PanelAdministration\Models\Droit;
 use Paneladministration\PanelAdministration\Models\Menu;
 use Paneladministration\PanelAdministration\Models\SousMenu;
 use Paneladministration\PanelAdministration\Models\TypeUser;

@@ -2,16 +2,10 @@
 
 namespace Paneladministration\PanelAdministration\Models;
 
-
-use Illuminate\Contracts\Auth\UserProvider;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as AuthUser;
 
-class User  extends AuthUser
-
+class User extends AuthUser
 {
-
-
     protected $table = 'users';
 
     protected $primaryKey = 'id_users';

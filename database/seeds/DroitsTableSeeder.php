@@ -2,8 +2,8 @@
 
 namespace Paneladministration\PanelAdministration;
 
-use Paneladministration\PanelAdministration\Models\Droit;
 use Illuminate\Database\Seeder;
+use Paneladministration\PanelAdministration\Models\Droit;
 
 class DroitsTableSeeder extends Seeder
 {

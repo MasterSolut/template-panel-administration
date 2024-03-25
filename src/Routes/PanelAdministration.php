@@ -2,11 +2,9 @@
 
 namespace Paneladministration\PanelAdministration\Http\Controllers;
 
+use Illuminate\Support\Facades\Route;
 
-use  Illuminate\Support\Facades\Route;
-
-
-$namespacePrefix = '\\' . config('panel.controllers.namespace') . '\\';
+$namespacePrefix = '\\'.config('panel.controllers.namespace').'\\';
 
 Route::group([
     // 'namespace' => $namespacePrefix,
