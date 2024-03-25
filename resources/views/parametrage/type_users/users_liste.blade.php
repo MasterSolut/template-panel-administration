@@ -1,4 +1,4 @@
-@extends('templates.base')
+@extends('PanelAdministration::templates.base')
 
 @section('content')
 <div class="box box-primary">
@@ -7,7 +7,7 @@
       <?php if (isset($type_user)) {
        ?>
        <h3 >Liste des utilisateurs de type : 
-       <a href="{{URL::To('type_users')}}">{{ $type_user->libelle_type_users }}</a>
+       <a href="{{URL::To('admin/type_users')}}">{{ $type_user->libelle_type_users }}</a>
        </h3>
       <?php
       } else {

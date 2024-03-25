@@ -1,18 +1,16 @@
-@extends('PanelAdministration::layouts.app')
-
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar">
 	<!-- sidebar: style can be found in sidebar.less -->
 	<section class="sidebar">
 		<!-- Sidebar user panel -->
-		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
-			<div class="image">
+		<div class="user-panel">
+			<div class="pull-left image">
 				@if(Auth::check())
-				<img src="" class="img-circle" alt="img-circle elevation-2" style="height: 50px; width: 50px;">
+				<img src="{{  url(Auth::user()->logo_users) }}" class="img-circle" alt="User Image" style="height: 50px; width: 50px;">
 				@else
 				<p></p>
 				@endif
 			</div>
-			<div class="info">
+			<div class="pull-left info">
 				<p> @if(Auth::check())
 					{{Auth::user()->login_users}}
 					@endif</p>
@@ -21,8 +19,7 @@
 			</div> 
 			<!-- /.search form -->
 			<!-- sidebar menu: : style can be found in sidebar.less -->
-            <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+			<ul class="sidebar-menu">
 				<li class="header">MENU PRINCIPAL</li>
 				@if(Auth::check())
 			  <?php 
@@ -53,10 +50,10 @@
 			          @endif
 			          @if($i == 1)
 			            <?php $i = 10; ?>
-                        <li class="nav-item has-treeview menu-open">
-			            	<a href="#" class="nav-link active">
+			                <li class="treeview">
+			            	<a href="javascript:void(0)">
 			            		<i class="fa {{ $menu->libelle_menus }}"></i> <span>{{ $menu->titre_menus }}</span>
-			            		<span class="right badge badge-danger">
+			            		<span class="pull-right-container">
 			            			<i class="fa fa-angle-left pull-right"></i>
 			            		</span>
 			            	</a>
@@ -89,6 +86,5 @@
 			  <?php  } ?>
 			@endif
         	</ul>
-        </nav>
 		</section>
 	</aside>

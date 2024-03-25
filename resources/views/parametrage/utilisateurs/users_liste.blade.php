@@ -1,4 +1,4 @@
-@extends('templates.base')
+@extends('PanelAdministration::templates.base')
 
 @section('content')
 <div class="box box-primary">
@@ -7,7 +7,7 @@
       <h1 >Liste des utilisateurs</h1>
     </div>
     <div class="box-header col-xs-2">
-      <a href="javascript:openwindows('{{ URL::To('utilisateurs/create')}}',990,550,true)"  class="btn btn-block btn-primary">
+      <a href="javascript:openwindows('{{ URL::To('admin/utilisateurs/create')}}',990,550,true)"  class="btn btn-primary float-right mt-2">
         <h5> <i class="glyphicon glyphicon-plus"></i>
           Nouveau</h5></a>
         </div>

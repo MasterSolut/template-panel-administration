@@ -19,14 +19,17 @@ Route::group([
     Route::get('/desable_users/{id}', [UtilisateursController::class, 'desable_users']);
     Route::get('/visible_users/{id}', [UtilisateursController::class, 'visible_users']);
 
-    Route::get('/menus', [MenusController::class, 'index']);
+    Route::resource('menus', MenusController::class);
     Route::get('/menus/create', [MenusController::class, 'create']);
     Route::get('/menus/visible/{id}', [MenusController::class, 'visible']);
 
-    Route::get('/sous_menus', [SousMenuController::class, 'index']);
+    Route::resource('sous_menus', SousMenuController::class);
     Route::get('/sous_menus/visible/{id}', [SousMenuController::class, 'visible']);
     Route::get('/sous_menus/list_by/{id}', [SousMenuController::class, 'listBy']);
 
-    Route::get('/droits', [DroitsController::class, 'index']);
+    Route::resource('type_users', TypeUsersController::class);
+    Route::get('/attribuer_type_users/{id}', [TypeUsersController::class], 'type_utilisateur');
+
+    Route::resource('droits', DroitsController::class);
     Route::get('/droits_users/{id}', [UtilisateursController::class, 'droits']);
 });

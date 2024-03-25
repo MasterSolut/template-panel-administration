@@ -127,7 +127,7 @@
 
   <!-- Left side column. contains the sidebar -->
 
-  @include('includes.navigation')
+  @include('PanelAdministration::includes.navigation')
 
   <!-- =============================================== -->
 

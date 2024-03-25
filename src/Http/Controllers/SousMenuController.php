@@ -3,9 +3,10 @@
 namespace Paneladministration\PanelAdministration\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Paneladministration\PanelAdministration\Facades\PanelAdministration;
 use Paneladministration\PanelAdministration\Models\Menu;
 use Paneladministration\PanelAdministration\Models\SousMenu;
 
@@ -20,7 +21,7 @@ class SousMenuController extends Controller
             ->get();
         $menu = Menu::find($id_menus);
 
-        return view('parametrage.sous_menus.sous_menus_liste', compact('sous_menus', 'menu'));
+        return PanelAdministration::view('PanelAdministration::parametrage.sous_menus.sous_menus_liste', compact('sous_menus', 'menu'));
     }
 
     public function __construct()
@@ -35,14 +36,14 @@ class SousMenuController extends Controller
             ->get();
 
         // dd($menus);
-        return view('parametrage/sous_menus/sous_menus_liste', compact('sous_menus', 'menus'));
+        return PanelAdministration::view('PanelAdministration::parametrage/sous_menus/sous_menus_liste', compact('sous_menus', 'menus'));
     }
 
     public function create()
     {
-        $menus = Menu::where('visible_menus', '=', '1')->get()->lists('titre_menus', 'id_menus');
+        $menus = Menu::where('visible_menus', '=', '1')->get()->pluck('titre_menus', 'id_menus');
 
-        return view('parametrage.sous_menus.sous_menus_form', compact('menus'));
+        return PanelAdministration::view('PanelAdministration::parametrage.sous_menus.sous_menus_form', compact('menus'));
     }
 
     public function store(Request $request)
@@ -68,7 +69,7 @@ class SousMenuController extends Controller
         $sous_menus = SousMenu::find($id);
         $menus = Menu::where('visible_menus', '=', '1')->get()->lists('titre_menus', 'id_menus');
 
-        return view('parametrage.sous_menus.sous_menus_form', compact('sous_menus', 'menus'));
+        return PanelAdministration::view('PanelAdministration::parametrage.sous_menus.sous_menus_form', compact('sous_menus', 'menus'));
     }
 
     public function update(Request $request, $id)

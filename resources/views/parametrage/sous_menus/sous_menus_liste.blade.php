@@ -1,4 +1,4 @@
-@extends('templates.base')
+@extends('PanelAdministration::templates.base')
 @section('content')
 
 <div class="box box-primary">
@@ -19,8 +19,8 @@
     </div>
     <div class="box-header col-xs-2">
       <a
-        href="javascript:openwindows('{{ URL::To('sous_menus/create')}}',800,700,true)"
-        class="btn btn-block btn-primary">
+        href="javascript:openwindows('{{ URL::To('admin/sous_menus/create')}}',800,700,true)"
+        class="btn btn-primary float-right mt-2">
         <h5> <i class="glyphicon glyphicon-plus"></i>Nouveau</h5>
       </a>
     </div>
@@ -50,7 +50,7 @@
               <button type="button" class="btn btn-primary btn-flat" data-toggle="tooltip" data-original-title="Éditer"><i class="fa fa-edit"></i>
               </button>
             </a>
-            <a href="{{URL::To('sous_menus/visible/'.$sous_menu->id_sous_menus)}}">
+            <a href="{{URL::To('admin/sous_menus/visible/'.$sous_menu->id_sous_menus)}}">
               <button type="button" class="btn btn-danger btn-flat"  data-toggle="tooltip" data-original-title="Supprimer" ><i class="fa fa-trash"></i>
               </button>
             </a>

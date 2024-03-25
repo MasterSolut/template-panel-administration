@@ -33,10 +33,10 @@ class UtilisateursController extends Controller
     {
         //
         // code...
-        $utilisateurs = DB::table('users')->orderBy('name', 'asc')->get();
+        $utilisateurs = DB::table('users')->orderBy('nom_users', 'asc')->get();
 
         // $utilisateurs->date_users=date('d/m/Y',strtotime($utilisateurs->date_users));
-        return PanelAdministration::view('PanelAdministration::user', compact('utilisateurs'));
+        return PanelAdministration::view('PanelAdministration::parametrage.utilisateurs.users_liste', compact('utilisateurs'));
     }
 
     /**
@@ -48,7 +48,7 @@ class UtilisateursController extends Controller
     {
         //
         // code...
-        return view('parametrage.utilisateurs.users_form');
+        return PanelAdministration::view('PanelAdministration::parametrage.utilisateurs.users_form');
     }
 
     /**
@@ -101,7 +101,7 @@ class UtilisateursController extends Controller
         $utilisateurs = User::find($id);
         $utilisateurs->date_users = date('d/m/Y', strtotime($utilisateurs->date_users));
 
-        return view('parametrage.utilisateurs.users_show', compact('utilisateurs'));
+        return PanelAdministration::view('PanelAdministration::parametrage.utilisateurs.users_show', compact('utilisateurs'));
     }
 
     /**
@@ -116,7 +116,7 @@ class UtilisateursController extends Controller
         $utilisateurs = User::find($id);
         $utilisateurs->date_users = date('d/m/Y', strtotime($utilisateurs->date_users));
 
-        return view('parametrage.utilisateurs.users_edit', compact('utilisateurs'));
+        return PanelAdministration::view('PanelAdministration::parametrage.utilisateurs.users_edit', compact('utilisateurs'));
     }
 
     public function edit_profile($id)
@@ -125,7 +125,7 @@ class UtilisateursController extends Controller
         $utilisateurs = User::find($id);
         $utilisateurs->date_users = date('d/m/Y', strtotime($utilisateurs->date_users));
 
-        return view('parametrage.utilisateurs.users_edit_profile', compact('utilisateurs'));
+        return PanelAdministration::view('PanelAdministration::parametrage.utilisateurs.users_edit_profile', compact('utilisateurs'));
     }
 
     /**
@@ -212,6 +212,6 @@ class UtilisateursController extends Controller
         $sous_menus = DB::table('sous_menus')->where('visible_sous_menus', '=', '1')->get();
         $type_users = TypeUser::lists('libelle_type_users', 'id_type_users');
 
-        return view('parametrage.droits.droits_users_liste_post', compact('droits', 'menus', 'sous_menus', 'type_users', 'id'));
+        return PanelAdministration::view('PanelAdministration::parametrage.droits.droits_users_liste_post', compact('droits', 'menus', 'sous_menus', 'type_users', 'id'));
     }
 }

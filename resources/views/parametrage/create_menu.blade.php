@@ -1,4 +1,4 @@
-@extends('templates.base')
+@extends('PanelAdministration::templates.base')
 @section('content')
     <div class="col-xs-12">
           <!-- general form elements -->

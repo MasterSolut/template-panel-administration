@@ -1,4 +1,4 @@
-@extends('templates.background')
+@extends('PanelAdministration::templates.background')
 @section('content')
 <div class="col-xs-12">
   <!-- general form elements -->
@@ -34,20 +34,20 @@
     </div>
     
     <script type="text/javascript">
-    opener.location.replace("{{url('sous_menus/list_by/'.Session::get('menu_id'))}}"); 
+    opener.location.replace("{{url('admin/sous_menus/list_by/'.Session::get('menu_id'))}}"); 
     </script>
     @endif
  
     <div class="box-body">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="titre_sous_menus">Titre du sous menu</label>
             {!! Form::text('titre_sous_menus', null, ['class' => 'form-control', 'placeholder' => 'Titre du menu']) !!}
             {!! $errors->first('titre_sous_menus','<span class="help-block" style="color:red;">:message</span>') !!}
           </div>
         </div>
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="libelle_sous_menus">Icone du sous menu</label>
             {!! Form::text('libelle_sous_menus', null, ['class' => 'form-control', 'placeholder' => 'Icone du menu']) !!}
@@ -56,14 +56,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="lien_sous_menus">Lien</label>
             {!! Form::text('lien_sous_menus', null, ['class' => 'form-control', 'placeholder' => 'Lien']) !!}
             {!! $errors->first('lien_sous_menus','<span class="help-block" style="color:red;">:message</span>') !!}
           </div>
         </div>
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="indice_sous_menus">Indice</label>
             {!! Form::number('indice_sous_menus', null, ['class' => 'form-control', 'placeholder' => 'Indice']) !!}
@@ -72,7 +72,7 @@
         </div>
       </div>
       <div class="row">
-      <div class="col-xs-12">
+      <div class="col-12">
        <div class="form-group">
         <label for="id_menus">Menu</label>
         {!! Form::select('id_menus', $menus, null, ['class' => 'form-control select2']) !!}
@@ -80,14 +80,14 @@
     </div>
   </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="publier_sous_menus">Publier</label>
             {!! Form::select('publier_sous_menus', ['1' => 'Oui', '0' => 'Non'], null, ['class' => 'form-control select2']) !!}
           </div>
         </div>
       </div>
-      <div class="col-xs-12" align="right">
+      <div class="col-12" align="right">
         <div class="box-footer">
           <button type="submit" class="btn btn-primary">Valider</button>
         </div>

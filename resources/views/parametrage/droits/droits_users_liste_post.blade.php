@@ -1,4 +1,4 @@
-@extends('templates.background')
+@extends('PanelAdministration::templates.background')
 @section('content')
 <div class="box box-primary">
   <div class="box-header">

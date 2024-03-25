@@ -11,6 +11,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        return 'Welcome to our homepage';
+        return view('PanelAdministration::templates/base');
     }
 }

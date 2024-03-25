@@ -1,36 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Web site</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="{{ asset('/resources/assets/bootstrap/css/bootstrap.min.css') }}">
-  
-  <link rel="shortcut icon" href="{{ asset('/ $configuration->favicon') }}"  />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('/resources/assets/font-awesome/4.5.0/css/font-awesome.min.css') }}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ asset('/resources/assets/ionicons/2.0.1/css/ionicons.min.css') }}">
-    <!-- DataTables -->
-  <link rel="stylesheet" href="{{ asset('/resources/assets/plugins/datatables/dataTables.bootstrap.css') }}">
-  <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="{{ asset('/resources/assets/plugins/datepicker/datepicker3.css') }}">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="{{ asset('/resources/assets/plugins/select2/select2.min.css') }}">
-  <!-- Theme style -->
-   <link rel="stylesheet" href="{{ asset('/resources/assets/dist/css/AdminLTE.min.css') }}"> 
-     <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="{{ asset('/resources/assets/plugins/colorpicker/bootstrap-colorpicker.min.css') }}"> 
-  <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="{{ asset('/resources/assets/plugins/timepicker/bootstrap-timepicker.min.css') }}">  
-  <link rel="stylesheet" href="{{ asset('/resources/assets/dist/css/skins/_all-skins.min.css') }}">  
- 
-  <link rel="stylesheet" href="{{ asset('/resources/assets/jasny/css/jasny-bootstrap.min.css') }}">  
+@extends('PanelAdministration::templates.base')
 
-</head>
+@section('content')
 <body class=" register-page ">
 <!-- Site wrapper -->
 
@@ -162,5 +132,7 @@
 
   CKEDITOR.replace( 'article-ckeditor' );
 </script>
-</body>
-</html>
+
+@stop
+
+

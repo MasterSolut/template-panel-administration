@@ -3,10 +3,13 @@
 namespace Paneladministration\PanelAdministration\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Paneladministration\PanelAdministration\Facades\PanelAdministration;
 use Paneladministration\PanelAdministration\Models\Menu;
+use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Controller;
+
+
 
 class MenusController extends Controller
 {
@@ -21,12 +24,26 @@ class MenusController extends Controller
     {
         return PanelAdministration::view('PanelAdministration::parametrage.menus.menus_form');
     }
+    public function store(Request $request)
+    {
+        $this->validate($request, [Menu::rules(), Menu::messages()]);
+        $menus = new Menu();
+        $menus->titre_menus = $request->titre_menus;
+        $menus->libelle_menus = $request->libelle_menus;
+        $menus->lien_menus = $request->lien_menus;
+        $menus->indice_menus = $request->indice_menus;
+        $menus->publier_menus = $request->publier_menus;
+        $menus->save();
+        $msg = "Enregistrement effectué avec succès !";
+        Session::flash('flash_message', $msg);
+        return redirect()->back();
+    }
 
     public function edit($id)
     {
         $menus = Menu::find($id);
 
-        return view('parametrage.menus.menus_form', compact('menus'));
+        return PanelAdministration::viewview('PanelAdministration::parametrage.menus.menus_form', compact('menus'));
     }
 
     public function update(Request $request, $id)

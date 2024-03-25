@@ -1,4 +1,4 @@
-@extends('templates.background')
+@extends('PanelAdministration::templates.background')
 @section('content')
 <div class="col-xs-12">
   <!-- general form elements -->
@@ -36,7 +36,7 @@
       {{ Session::get('flash_message') }}
     </div>
     <script type="text/javascript">
-      opener.location.replace('{{URL::To('type_users')}}');
+      opener.location.replace('{{URL::To('admin/type_users')}}');
     </script>
     @endif
 

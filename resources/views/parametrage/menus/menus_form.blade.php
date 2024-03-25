@@ -42,14 +42,14 @@
 
     <div class="box-body">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="titre_menus">Titre du menu</label>
             {!! Form::text('titre_menus', null, ['class' => 'form-control', 'placeholder' => 'Titre du menu']) !!}
             {!! $errors->first('titre_menus','<span class="help-block" style="color:red;">:message</span>') !!}
           </div>
         </div>
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="libelle_menus">Icone du menu</label>
             {!! Form::text('libelle_menus', null, ['class' => 'form-control', 'placeholder' => 'Icone du menu']) !!}
@@ -58,14 +58,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="lien_menus">Lien</label>
             {!! Form::text('lien_menus', null, ['class' => 'form-control', 'placeholder' => 'Lien']) !!}
             {!! $errors->first('lien_menus','<span class="help-block" style="color:red;">:message</span>') !!}
           </div>
         </div>
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="indice_menus">Indice</label>
             {!! Form::number('indice_menus', null, ['class' => 'form-control', 'placeholder' => 'Indice']) !!}
@@ -74,14 +74,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="publier_menus">Publier</label>
             {!! Form::select('publier_menus', ['1' => 'Oui', '0' => 'Non'], null, ['class' => 'form-control select2']) !!}
           </div>
         </div>
       </div>
-      <div class="col-xs-12" align="right">
+      <div class="col-12" align="right">
         <div class="box-footer">
           <button type="submit" class="btn btn-primary">Valider</button>
         </div>

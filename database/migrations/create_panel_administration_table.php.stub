@@ -65,5 +65,25 @@ return new class extends Migration
             $table->integer('id_type_users')->nullable()->index('id_type_users');
             $table->integer('id_menus')->nullable()->index('id_menus');
         });
+
+         Schema::create('users', function (Blueprint $table) {
+            $table->increments('id_users')->unsigned();
+            $table->string('nom_users',255);
+            $table->string('prenoms_users',255);
+            $table->string('sexe_users',255);
+            $table->string('date_users',255);
+            $table->string('email',255);
+            $table->string('adresse_users',255);
+            $table->string('contact_users',255);
+            $table->string('logo_users',255);
+            $table->string('ville_users',255);
+            $table->string('login_users', 64)->unique()->nullable();
+            $table->string('password', 64)->nullable();
+            $table->rememberToken()->nullable();
+            $table->boolean('publier_users')->default(true);
+            $table->boolean('visible_users')->default(true);
+            $table->timestamps();
+        });
+
     }
 };

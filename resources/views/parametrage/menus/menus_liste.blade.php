@@ -8,7 +8,7 @@
     <div class="box-header col-xs-2">
       <a
         href="javascript:openwindows('{{ URL::To('admin/menus/create')}}',800,700,true)"
-         class="btn btn-primary float-right mt-2">
+        class="btn btn-primary float-right mt-2">
         <h5> <i class="glyphicon glyphicon-plus"></i>Nouveau</h5>
       </a>
     </div>
@@ -31,7 +31,7 @@
         <tr role="row" class="odd">
           <td class="sorting_1">{{ $i }}</td>
           <td><u> 
-              <a href="{{URL::To('sous_menus/list_by/'.$menu->id_menus)}}">{{ $menu->titre_menus }}</a>
+              <a href="{{URL::To('/admin/sous_menus/list_by/'.$menu->id_menus)}}">{{ $menu->titre_menus }}</a>
           </u></td>
           <td>{{ $menu->libelle_menus }}</td>
           <td>{{ $menu->lien_menus }}</td>
@@ -45,7 +45,7 @@
                 <i class="fa fa-edit"></i>
               </button>
             </a>
-        <a href="{{URL::To('menus/visible/'.$menu->id_menus)}}">
+        <a href="{{URL::To('admin/menus/visible/'.$menu->id_menus)}}">
           <button  type="button"  class="btn btn-danger btn-flat"  data-toggle="tooltip" 
             data-original-title="Supprimer">
             <i class="fa fa-trash"></i>

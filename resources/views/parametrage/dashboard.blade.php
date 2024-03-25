@@ -1,3 +1,3 @@
-@extends('templates.base')
+@extends('PanelAdministration::templates.base')
 @section('content')
 @stop
