@@ -7,7 +7,7 @@
     </div>
     <div class="box-header col-xs-2">
       <a
-        href="javascript:openwindows('{{ URL::To('admin/menus/create')}}',800,700,true)"
+      onclick="javascript:window.open('{{ URL::To('admin/menus/create')}}',800,700,true)"
         class="btn btn-primary float-right mt-2">
         <h5> <i class="glyphicon glyphicon-plus"></i>Nouveau</h5>
       </a>
@@ -36,7 +36,7 @@
           <td>{{ $menu->libelle_menus }}</td>
           <td>{{ $menu->lien_menus }}</td>
           <td>
-            <a href="javascript:openwindows('{{route('menus.edit',$menu->id_menus)}}',800,700,true)">
+            <a onclick="javascript:window.open('{{route('menus.edit',$menu->id_menus)}}',800,700,true)">
               <button 
                 type="button" 
                 class="btn btn-primary btn-flat" 

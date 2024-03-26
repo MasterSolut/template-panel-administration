@@ -19,7 +19,7 @@
     </div>
     <div class="box-header col-xs-2">
       <a
-        href="javascript:openwindows('{{ URL::To('admin/sous_menus/create')}}',800,700,true)"
+      onclick="javascript:window.open('{{ URL::To('admin/sous_menus/create')}}',800,700,true)"
         class="btn btn-primary float-right mt-2">
         <h5> <i class="glyphicon glyphicon-plus"></i>Nouveau</h5>
       </a>
@@ -46,7 +46,7 @@
           <td>{{ $sous_menu->libelle_sous_menus }}</td>
           <td>{{ $sous_menu->lien_sous_menus }}</td>
           <td>
-            <a href="javascript:openwindows('{{route('sous_menus.edit',$sous_menu->id_sous_menus)}}',800,700,true)">
+            <a onclick="javascript:window.open('{{route('sous_menus.edit',$sous_menu->id_sous_menus)}}',800,700,true)">
               <button type="button" class="btn btn-primary btn-flat" data-toggle="tooltip" data-original-title="Éditer"><i class="fa fa-edit"></i>
               </button>
             </a>

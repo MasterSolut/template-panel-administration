@@ -67,7 +67,7 @@ class SousMenuController extends Controller
     public function edit($id)
     {
         $sous_menus = SousMenu::find($id);
-        $menus = Menu::where('visible_menus', '=', '1')->get()->lists('titre_menus', 'id_menus');
+        $menus = Menu::where('visible_menus', '=', '1')->get()->pluck('titre_menus', 'id_menus');
 
         return PanelAdministration::view('PanelAdministration::parametrage.sous_menus.sous_menus_form', compact('sous_menus', 'menus'));
     }

@@ -30,7 +30,7 @@
 			            $sous_menus = DB::table('sous_menus')->where('visible_sous_menus', '=', '1')->get();
 			   ?>        
 			    @foreach($menus as $menu)
-			    <li class="nav-item has-treeview menu-open">
+			    <li class="nav-item">
 				    <a href="#" class="nav-link active">
 	            		<i class="nav-icon fas {{$menu->libelle_menus}}"></i> <p>{{($menu->titre_menus)}}
 	            		
@@ -51,9 +51,9 @@
 			      </li>  
 			    @endforeach
 		@endif
-		
-			<li class="nav-item has-treeview menu-open">
-				<a href="#" class="nav-link active">
+		<template>
+			<li class="nav-item">
+				<a href="#" class="nav-link active ">
 					<i class="nav-icon fas fa-tachometer-alt"></i> <p>Menus
 					
 						<i class="right fas fa-angle-left"></i>
@@ -64,7 +64,7 @@
 					<li class="nav-item"><a href="{{url('/admin/menus')}}" class="nav-link"><i class="far fa-circle nav-icon"></i>Liste des Menus</a></li>
 				</ul>
 			</li>
-			<li class="nav-item has-treeview menu-open">
+			<li class="nav-item">
 				<a href="#" class="nav-link active">
 					<i class="nav-icon fas fa-tachometer-alt"></i> <p>Sous Menus
 					
@@ -76,33 +76,21 @@
 					<li class="nav-item"><a href="{{url('/admin/sous_menus')}}" class="nav-link"><i class="far fa-circle nav-icon"></i>Liste des sous Menus</a></li>
 				</ul>
 			</li>
-				<li class="nav-item has-treeview menu-open">
+				<li class="nav-item">
 				<a href="#" class="nav-link active">
-					<i class="nav-icon fas fa-pie-chart"></i> <p>Utilisateurs
+					<i class="nav-icon fas fa-user-alt	"></i> <p>Utilisateurs
 					
 						<i class="right fas fa-angle-left"></i>
 					</p>
 				</a>
-				<ul class="nav nav-treeview">
+				<ul class="nav nav-treeview" >
 					<li class="nav-item"><a href="{{url('admin/utilisateurs/create')}}" class="nav-link"><i class="far fa-circle nav-icon"></i>Ajouter un utilisateur</a></li>
 					<li class="nav-item"><a href="{{url('/admin/utilisateurs')}}" class="nav-link"><i class="far fa-circle nav-icon"></i>Liste des utilisateurs</a></li>
 				</ul>
 			</li>
 		</li>
-		<li class="nav-item has-treeview menu-open">
-		<a href="#" class="nav-link active">
-			<i class="nav-icon fas fa-pie-chart"></i> <p>Droits
-			
-				<i class="right fas fa-angle-left"></i>
-			</p>
-		</a>
-		<ul class="nav nav-treeview">
-			<li class="nav-item"><a href="{{url('admin/droits/create')}}" class="nav-link"><i class="far fa-circle nav-icon"></i>Ajouter un droit</a></li>
-			<li class="nav-item"><a href="{{url('/admin/droits')}}" class="nav-link"><i class="far fa-circle nav-icon"></i>Liste des droits</a></li>
-		</ul>
-		</li>
-	</li>
-<li class="nav-item has-treeview menu-open">
+		
+<li class="nav-item">
 <a href="#" class="nav-link active">
 	<i class="nav-icon fas fa-pie-chart"></i> <p>Type d'Utilisateurs
 	
@@ -113,7 +101,7 @@
 	<li class="nav-item"><a href="{{url('admin/type_users/create')}}" class="nav-link"><i class="far fa-circle nav-icon"></i>Ajouter un type utilisateur</a></li>
 	<li class="nav-item"><a href="{{url('/admin/type_users')}}" class="nav-link"><i class="far fa-circle nav-icon"></i>Liste des types utilisateurs</a></li>
 </ul>
-</li>
+</li>  </template>
         	</ul>
 		</ul>
 	</nav>

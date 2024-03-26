@@ -26,7 +26,7 @@
     <div class="box-body">
      {{ csrf_field() }}
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-6">
           <div class="col-xs-12">
             <div class="form-group">
               <label for="exampleInputEmail1">Nom d'utilisateur</label>
@@ -34,21 +34,21 @@
               {!! $errors->first('nom_users','<span class="help-block" style="color:red;">:message</span>') !!}
             </div>                  
           </div>
-          <div class="col-xs-12">
+          <div class="col-12">
             <div class="form-group">
               <label for="exampleInputPassword1">Prénom d'utilisateur</label>
               {!! Form :: text('prenoms_users',null,['class'=>'form-control','autocomplete'=>'off','placeholder'=>'Prénoms de l\'utilisateur', 'value'=>'old(prenoms_users)']) !!}
               {!! $errors->first('prenoms_users','<span class="help-block" style="color:red;">:message</span>') !!}
             </div>                  
           </div>
-          <div class="col-xs-12">
+          <div class="col-12">
             <div class="form-group">
               <label for="exampleInputPassword1">Sexe</label>
               {!! Form::select('sexe_users', ['F' => 'Féminin', 'M' => 'Masculin'],null,['class'=>'form-control select2']) !!}
             </div>
           </div>
 
-          <div class="col-xs-12">
+          <div class="col-12">
             <div class="form-group">
               <label for="exampleInputPassword1">Date de naissance</label>
               <div class="input-group date">
@@ -60,7 +60,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xs-12">
+          <div class="col-12">
             <div class="form-group">
               <label for="exampleInputPassword1">Email</label>
               {!! Form :: email('email',null,['class'=>'form-control','autocomplete'=>'off','placeholder'=>'email de l\'utilisateur', 'value'=>'old(email)','disabled'=>'true']) !!}
@@ -68,28 +68,28 @@
             </div> 
           </div>
         </div>
-        <div class="col-xs-6" >
+        <div class="col-6" >
           <div class="form-group">
               <label>Logo</label>
               {!! Form :: file('logo_users',null,['class'=>'form-control','autocomplete'=>'off', 'value'=>'old(logo_users)']) !!}
               
               {!! $errors->first('logo_users','<span class="help-block" style="color:red;">:message</span>') !!}
           </div>
-          <div class="col-xs-12">
+          <div class="col-12">
             <div class="form-group">
               <label for="exampleInputPassword1">Contact</label>
               {!! Form :: text('contact_users',null,['class'=>'form-control','autocomplete'=>'off','placeholder'=>'Contact de l\'utilisateur', 'value'=>'old(contact_users)']) !!}
               {!! $errors->first('contact_users','<span class="help-block" style="color:red;">:message</span>') !!}
             </div>
           </div>
-          <div class="col-xs-12">
+          <div class="col-12">
             <div class="form-group">
               <label for="exampleInputPassword1">Ville</label>
               {!! Form :: text('ville_users',null,['class'=>'form-control','autocomplete'=>'off','placeholder'=>'Ville de l\'utilisateur', 'value'=>'old(ville_users)']) !!}
               {!! $errors->first('ville_users','<span class="help-block" style="color:red;">:message</span>') !!}
             </div> 
           </div>
-           <div class="col-xs-12">
+           <div class="col-12">
             <div class="form-group">
               <label for="exampleInputPassword1">Adresse</label>
               {!! Form :: text('adresse_users',null,['class'=>'form-control','autocomplete'=>'off','placeholder'=>'Adresse de l\'utilisateur', 'value'=>'old(adresse_users)']) !!}
@@ -100,7 +100,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12" align="right">
+      <div class="col-12" align="right">
         <div class="box-footer">
           <button type="submit" class="btn btn-primary">Valider</button>
         </div>

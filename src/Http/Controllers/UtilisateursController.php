@@ -4,12 +4,13 @@ namespace Paneladministration\PanelAdministration\Http\Controllers;
 
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Paneladministration\PanelAdministration\Facades\PanelAdministration;
 use Paneladministration\PanelAdministration\Models\TypeUser;
+use Paneladministration\PanelAdministration\Models\User as ModelsUser;
 
 class UtilisateursController extends Controller
 {
@@ -58,8 +59,8 @@ class UtilisateursController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request, User::rules(), User::messages());
-        $utilisateurs = new User();
+        $this->validate($request, ModelsUser::rules(), ModelsUser::messages());
+        $utilisateurs = new ModelsUser();
         $utilisateurs->nom_users = strtoupper($request->nom_users);
         $utilisateurs->prenoms_users = ucwords($request->prenoms_users);
         $utilisateurs->sexe_users = $request->sexe_users;
@@ -77,9 +78,9 @@ class UtilisateursController extends Controller
         $file = $request->file('logo_users');
         if ($file) {
             $extension = $file->getClientOriginalExtension();
-            $nom = time().'.'.$extension;
+            $nom = time() . '.' . $extension;
             $file->move('fichiers', $nom);
-            $utilisateurs->logo_users = 'fichiers/'.$nom;
+            $utilisateurs->logo_users = 'fichiers/' . $nom;
         }
         $utilisateurs->save();
         $msg = 'Utilisateur Enregistr&eacute; !';
@@ -97,7 +98,7 @@ class UtilisateursController extends Controller
     public function show($id)
     {
         //
-        $utilisateurs = User::find($id);
+        $utilisateurs = ModelsUser::find($id);
         $utilisateurs->date_users = date('d/m/Y', strtotime($utilisateurs->date_users));
 
         return PanelAdministration::view('PanelAdministration::parametrage.utilisateurs.users_show', compact('utilisateurs'));
@@ -112,7 +113,7 @@ class UtilisateursController extends Controller
     public function edit($id)
     {
         //
-        $utilisateurs = User::find($id);
+        $utilisateurs = ModelsUser::find($id);
         $utilisateurs->date_users = date('d/m/Y', strtotime($utilisateurs->date_users));
 
         return PanelAdministration::view('PanelAdministration::parametrage.utilisateurs.users_edit', compact('utilisateurs'));
@@ -121,7 +122,7 @@ class UtilisateursController extends Controller
     public function edit_profile($id)
     {
         //
-        $utilisateurs = User::find($id);
+        $utilisateurs = ModelsUser::find($id);
         $utilisateurs->date_users = date('d/m/Y', strtotime($utilisateurs->date_users));
 
         return PanelAdministration::view('PanelAdministration::parametrage.utilisateurs.users_edit_profile', compact('utilisateurs'));
@@ -137,7 +138,7 @@ class UtilisateursController extends Controller
     {
         // dd($this->validate($request,utilisateur::rules(),utilisateur::messages()));
 
-        $utilisateurs = User::find($id);
+        $utilisateurs = ModelsUser::find($id);
         $utilisateurs->nom_users = strtoupper($request->nom_users);
         $utilisateurs->prenoms_users = ucwords($request->prenoms_users);
         $utilisateurs->sexe_users = $request->sexe_users;
@@ -149,9 +150,9 @@ class UtilisateursController extends Controller
         // dd($request->file('logo_users'));
         if ($file) {
             $extension = $file->getClientOriginalExtension();
-            $nom = time().'.'.$extension;
+            $nom = time() . '.' . $extension;
             $file->move('fichiers', $nom);
-            $utilisateurs->logo_users = 'fichiers/'.$nom;
+            $utilisateurs->logo_users = 'fichiers/' . $nom;
         }
         $utilisateurs->save();
 
@@ -175,7 +176,7 @@ class UtilisateursController extends Controller
     public function enable_users($id)
     {
         // code...
-        $utilisateurs = User::find($id);
+        $utilisateurs = ModelsUser::find($id);
         $utilisateurs->publier_users = 1;
         $utilisateurs->save();
 
@@ -185,7 +186,7 @@ class UtilisateursController extends Controller
     public function desable_users($id)
     {
         // code...
-        $utilisateurs = User::find($id);
+        $utilisateurs = ModelsUser::find($id);
         $utilisateurs->publier_users = 0;
         $utilisateurs->save();
 
@@ -196,7 +197,7 @@ class UtilisateursController extends Controller
     public function visible_users($id)
     {
         // code...
-        $utilisateurs = User::find($id);
+        $utilisateurs = ModelsUser::find($id);
         $utilisateurs->visible_users = 0;
         $utilisateurs->save();
 

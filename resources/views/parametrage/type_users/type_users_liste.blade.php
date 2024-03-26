@@ -7,7 +7,7 @@
     </div>
     <div class="box-header col-xs-2">
       <a
-        href="javascript:openwindows('{{ URL::To('admin/type_users/create')}}',400,500,true)"
+        onclick="javascript:window.open('{{ URL::To('admin/type_users/create')}}',400,500,true)"
         class="btn btn-primary float-right mt-2">
         <h5> <i class="glyphicon glyphicon-plus"></i>Nouveau</h5>
       </a>
@@ -31,14 +31,14 @@
 
           <td>
           <u> 
-              <a href="{{URL::To('type_users/list_by/'.$type_user->id_type_users)}}">{{ $type_user->libelle_type_users }}</a>
+              <a href="{{URL::To('admin/type_users/list_by/'.$type_user->id_type_users)}}">{{ $type_user->libelle_type_users }}</a>
           </u>
           </td>
           <td>
-            <a href="javascript:openwindows('{{route('type_users.edit',$type_user->id_type_users)}}',400,500,true)">
+            <a onclick="javascript:window.open('{{route('type_users.edit',$type_user->id_type_users)}}',400,500,true)">
             <button type="button" class="btn btn-primary btn-flat" data-toggle="tooltip" data-original-title="Éditer"><i class="fa fa-edit"></i></button></a>
-            <a href="javascript:openwindows('{{URL::To('droits_type_users/'.$type_user->id_type_users)}}',1200,700,true)"><button type="button" class="btn bg-purple btn-flat" data-toggle="tooltip" data-original-title="Attribuer droits"><i class="fa fa-wrench"></i></button></a>
-            <a href="{{URL::To('type_users/visible/'.$type_user->id_type_users)}}">
+            <a onclick="javascript:window.open('{{URL::To('admin/droits_type_users/'.$type_user->id_type_users)}}',1200,700,true)"><button type="button" class="btn bg-purple btn-flat" data-toggle="tooltip" data-original-title="Attribuer droits"><i class="fa fa-wrench"></i></button></a>
+            <a href="{{URL::To('admin/type_users/visible/'.$type_user->id_type_users)}}">
               <button type="button" class="btn btn-danger btn-flat"  data-toggle="tooltip" data-original-title="Supprimer"><i class="fa fa-trash"></i>
               </button>
             </a>

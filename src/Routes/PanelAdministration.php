@@ -4,7 +4,7 @@ namespace Paneladministration\PanelAdministration\Http\Controllers;
 
 use Illuminate\Support\Facades\Route;
 
-$namespacePrefix = '\\'.config('panel.controllers.namespace').'\\';
+$namespacePrefix = '\\' . config('panel.controllers.namespace') . '\\';
 
 Route::group([
     // 'namespace' => $namespacePrefix,
@@ -26,7 +26,11 @@ Route::group([
     Route::get('/sous_menus/list_by/{id}', [SousMenuController::class, 'listBy']);
 
     Route::resource('type_users', TypeUsersController::class);
-    Route::get('/attribuer_type_users/{id}', [TypeUsersController::class], 'type_utilisateur');
+    Route::get('/attribuer_type_users/{id}', [TypeUsersController::class, 'type_utilisateur']);
+    Route::get('/droits_type_users/{id}', [TypeUsersController::class, 'droits']);
+    Route::post('droits_type_users_post', [TypeUsersController::class, 'droits_post']);
+    Route::get('type_users/list_by/{id}', [TypeUsersController::class, 'listBy']);
+
 
     Route::resource('droits', DroitsController::class);
     Route::get('/droits_users/{id}', [UtilisateursController::class, 'droits']);

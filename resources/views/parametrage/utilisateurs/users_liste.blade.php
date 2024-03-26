@@ -7,7 +7,7 @@
       <h1 >Liste des utilisateurs</h1>
     </div>
     <div class="box-header col-xs-2">
-      <a href="javascript:openwindows('{{ URL::To('admin/utilisateurs/create')}}',990,550,true)"  class="btn btn-primary float-right mt-2">
+      <a onclick="javascript:window.open('{{ URL::To('admin/utilisateurs/create')}}',990,550,true)"  class="btn btn-primary float-right mt-2">
         <h5> <i class="glyphicon glyphicon-plus"></i>
           Nouveau</h5></a>
         </div>
@@ -48,10 +48,10 @@
               @endif
             </td>        
             <td>
-              <a href="javascript:openwindows('{{route('utilisateurs.edit',$utilisateur->id_users)}}',990,550,true)"><button type="button" class="btn btn-primary btn-flat" data-toggle="tooltip" data-original-title="Éditer"><i class="fa fa-edit"></i></button></a>
-              <a href="javascript:openwindows('{{route('utilisateurs.show',$utilisateur->id_users)}}',350,350,true)"><button type="button" class="btn bg-olive btn-flat" data-toggle="tooltip" data-original-title="Afficher"><i class="fa fa-television"></i></button></a>
-              <a href="javascript:openwindows('{{URL::To('attribuer_type_users/'.$utilisateur->id_users)}}',400,550,true)"><button type="button" class="btn btn-info btn-flat" data-toggle="tooltip" data-original-title="Attribuer Type"><i class="fa fa-language"></i></button></a>
-              <a href="{{URL::To('visible/'.$utilisateur->id_users)}}"><button type="button" class="btn btn-danger btn-flat"  data-toggle="tooltip" data-original-title="Supprimer"><i class="fa fa-trash"></i></button></a>
+              <a onclick="javascript:window.open('{{route('utilisateurs.edit',$utilisateur->id_users)}}',990,550,true)"><button type="button" class="btn btn-primary btn-flat" data-toggle="tooltip" data-original-title="Éditer"><i class="fa fa-edit"></i></button></a>
+              <a onclick="javascript:window.open('{{route('utilisateurs.show',$utilisateur->id_users)}}',350,350,true)"><button type="button" class="btn bg-olive btn-flat" data-toggle="tooltip" data-original-title="Afficher"><i class="fa fa-television"></i></button></a>
+              <a onclick="javascript:window.open('{{URL::To('admin/attribuer_type_users/'.$utilisateur->id_users)}}',400,550,true)"><button type="button" class="btn btn-info btn-flat" data-toggle="tooltip" data-original-title="Attribuer Type"><i class="fa fa-language"></i></button></a>
+              <a href="{{URL::To('admin/visible/'.$utilisateur->id_users)}}"><button type="button" class="btn btn-danger btn-flat"  data-toggle="tooltip" data-original-title="Supprimer"><i class="fa fa-trash"></i></button></a>
             </td>
           </tr>
           @endforeach

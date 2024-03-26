@@ -43,7 +43,7 @@ class MenusController extends Controller
     {
         $menus = Menu::find($id);
 
-        return PanelAdministration::viewview('PanelAdministration::parametrage.menus.menus_form', compact('menus'));
+        return PanelAdministration::view('PanelAdministration::parametrage.menus.menus_form', compact('menus'));
     }
 
     public function update(Request $request, $id)

@@ -9,6 +9,6 @@ class AdminPanelController extends Controller
 {
     public function index()
     {
-        return PanelAdministration::view('PanelAdministration::home');
+        return PanelAdministration::view('PanelAdministration::templates/base');
     }
 }

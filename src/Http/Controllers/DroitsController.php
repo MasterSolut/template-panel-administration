@@ -26,9 +26,9 @@ class DroitsController extends Controller
 
     public function create()
     {
-        $menus = Menu::where('visible_menus', '=', '1')->get()->lists('titre_menus', 'id_menus');
-        $sous_menus = SousMenu::where('visible_sous_menus', '=', '1')->get()->lists('titre_sous_menus', 'id_sous_menus');
-        $type_users = TypeUser::where('visible_type_users', '=', '1')->get()->lists('libelle_type_users', 'id_type_users');
+        $menus = Menu::where('visible_menus', '=', '1')->get()->pluck('titre_menus', 'id_menus');
+        $sous_menus = SousMenu::where('visible_sous_menus', '=', '1')->get()->pluck('titre_sous_menus', 'id_sous_menus');
+        $type_users = TypeUser::where('visible_type_users', '=', '1')->get()->pluck('libelle_type_users', 'id_type_users');
 
         return PanelAdministration::view('PanelAdministration::parametrage.type_users.droits', compact('menus', 'sous_menus', 'type_users'));
     }
@@ -56,7 +56,7 @@ class DroitsController extends Controller
         $droits = DB::table('droits')->where('id_users', '=', $id)->get();
         $menus = DB::table('menus')->where('visible_menus', '=', '1')->get();
         $sous_menus = DB::table('sous_menus')->where('visible_sous_menus', '=', '1')->get();
-
+        $type_users = DB::table('type_users')->where('visible_type_users', '=', '1')->get();
         return PanelAdministration::view('PanelAdministration::parametrage.droits.droits_users_liste_post', compact('droits', 'menus', 'sous_menus', 'type_users', 'id'));
     }
 

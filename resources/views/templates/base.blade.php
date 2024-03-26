@@ -25,13 +25,14 @@
                                 <img src="https://assets.infyom.com/logo/blue_logo_150x150.png"
                                     class="img-circle elevation-2" alt="User Image">
                                 <p>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->nom_users }}
+                                    {{ Auth::user()->prenoms_users }}
                                     <small>Member since {{ Auth::user()->created_at->format('M. Y') }}</small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{ route('utilisateurs.edit', Auth::user()->id_users) }}" class="btn btn-default btn-flat">Profile</a>
                                 <a href="#" class="btn btn-default btn-flat float-right"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     Sign out

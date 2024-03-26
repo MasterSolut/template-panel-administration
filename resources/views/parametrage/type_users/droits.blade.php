@@ -8,7 +8,7 @@
     </div>
   <!-- /.box-header -->
   
-  {!! Form::open(['url' => 'droits_type_users_post' ]) !!}
+  {!! Form::open(['url' => 'admin/droits_type_users_post' ]) !!}
 
   @if(Session::has('flash_message'))
     <div class="alert alert-success alert-dismissible" role="alert" data-plugin="alertify">
@@ -39,7 +39,7 @@
       <thead>
         <tr>
           <?php $menus_save = $menus; 
-          use App\SousMenu;
+          use  Paneladministration\PanelAdministration\Models\SousMenu;
           ?>
           @foreach($menus_save as $menu)
           <?php 
